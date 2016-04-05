@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+
 import com.ood.restaurant.MenuItemData;
 import com.ood.restaurant.MenuItemViewAdapter;
 import com.ood.restaurant.R;
