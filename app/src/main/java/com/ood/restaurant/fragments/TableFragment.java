@@ -28,8 +28,7 @@ public class TableFragment extends Fragment implements AdapterView.OnItemClickLi
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
         View view = inflater.inflate(R.layout.fragment_table_list, container, false);
         GridView tableGrid = (GridView) view;
 
