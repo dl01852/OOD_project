@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.ood.restaurant.fragments.MenuFragment;
 import com.ood.restaurant.fragments.TableFragment;
 
 public class TableDialog extends DialogFragment implements View.OnClickListener {
@@ -69,7 +70,15 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
                 break;
 
             case R.id.btn_add_order:
-                // TODO: Open menu when this is triggered
+                // Close dialog
+                this.dismiss();
+
+                // Open menu fragment
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_layout, new MenuFragment())
+                        .commit();
                 break;
         }
     }
