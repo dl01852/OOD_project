@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.ood.restaurant.commands.MakeAvailableCommand;
+import com.ood.restaurant.commands.SeatTableCommand;
+import com.ood.restaurant.commands.TableReceiver;
 import com.ood.restaurant.fragments.TableFragment;
 
 public class TableDialog extends DialogFragment implements View.OnClickListener {
@@ -51,21 +54,15 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+        SeatTableCommand seatCommand = new SeatTableCommand();
+        MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
         switch( v.getId() ) {
             case R.id.btn_seat_table:
-                TableFragment.tableList.set(table, true);
-                toggleButton(btnSeatTable);
-                toggleButton(btnMakeAvailable);
-                toggleButton(btnAddOrder);
-                TableFragment.tableViews.get(table).setBackgroundColor(0xFFCCCCCC);
+                seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
                 break;
 
             case R.id.btn_make_available:
-                TableFragment.tableList.set(table, false);
-                toggleButton(btnSeatTable);
-                toggleButton(btnMakeAvailable);
-                toggleButton(btnAddOrder);
-                TableFragment.tableViews.get(table).setBackgroundColor(Color.GREEN);
+                makeAvailableCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
                 break;
 
             case R.id.btn_add_order:
