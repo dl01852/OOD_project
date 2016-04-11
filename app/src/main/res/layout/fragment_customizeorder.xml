@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_margin="20dp"
               android:orientation="vertical">
 
     <TextView
@@ -20,7 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            card_view:cardCornerRadius="20dp"
+            card_view:contentPadding="10dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardCornerRadius="4dp"
             card_view:cardElevation="5dp">
 
         <RelativeLayout
