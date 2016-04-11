@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="20dp"
+              android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/txtItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="ITEM"
+            android:textAppearance="?attr/textAppearanceListItem"/>
+
+    <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+        >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Topping"
+                    android:id="@+id/txtTopping"
+                    android:paddingBottom="5dp"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description of topping"
+                    android:layout_below="@id/txtTopping"
+                    android:id="@+id/textView2"/>
+            <Button
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
+                    android:text="ADD"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txtToppingPrice"
+                    android:id="@+id/btnAdd"
+            />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignStart="@id/btnAdd"
+                    android:id="@+id/txtToppingPrice"
+            />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>
