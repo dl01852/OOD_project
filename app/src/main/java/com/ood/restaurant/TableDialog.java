@@ -30,7 +30,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         btnMakeAvailable.setOnClickListener(this);
         btnAddOrder.setOnClickListener(this);
 
-        if (TableFragment.tableList.get(table)) {
+        if (StaticData.i().tables().get(table)) {
             toggleButton(btnSeatTable);
         } else {
             toggleButton(btnMakeAvailable);
@@ -53,19 +53,19 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
     public void onClick(View v) {
         switch( v.getId() ) {
             case R.id.btn_seat_table:
-                TableFragment.tableList.set(table, true);
+                StaticData.i().tables().set(table, true);
                 toggleButton(btnSeatTable);
                 toggleButton(btnMakeAvailable);
                 toggleButton(btnAddOrder);
-                TableFragment.tableViews.get(table).setBackgroundColor(0xFFCCCCCC);
+                StaticData.i().tableViews().get(table).setBackgroundColor(0xFFCCCCCC);
                 break;
 
             case R.id.btn_make_available:
-                TableFragment.tableList.set(table, false);
+                StaticData.i().tables().set(table, false);
                 toggleButton(btnSeatTable);
                 toggleButton(btnMakeAvailable);
                 toggleButton(btnAddOrder);
-                TableFragment.tableViews.get(table).setBackgroundColor(Color.GREEN);
+                StaticData.i().tableViews().get(table).setBackgroundColor(Color.GREEN);
                 break;
 
             case R.id.btn_add_order:
