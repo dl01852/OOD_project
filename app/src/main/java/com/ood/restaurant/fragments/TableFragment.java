@@ -10,6 +10,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.ood.restaurant.R;
+import com.ood.restaurant.StaticData;
 import com.ood.restaurant.TableDialog;
 import com.ood.restaurant.TableGridViewAdapter;
 
@@ -17,15 +18,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TableFragment extends Fragment implements AdapterView.OnItemClickListener {
-
-    // TODO: Use a less hacky way to track tables and TextViews
-    public static ArrayList<Boolean> tableList = new ArrayList<>();
-    public static HashMap<Integer, TextView> tableViews = new HashMap<>();
-    static {
-        for (int i = 0; i < 15; i++) {
-            tableList.add(false);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,7 +27,7 @@ public class TableFragment extends Fragment implements AdapterView.OnItemClickLi
 
         // Set the adapter
         tableGrid.setAdapter(new TableGridViewAdapter(getActivity(),
-                R.layout.fragment_table, tableList));
+                R.layout.fragment_table, StaticData.i().tables()));
         tableGrid.setOnItemClickListener(this);
         return view;
     }

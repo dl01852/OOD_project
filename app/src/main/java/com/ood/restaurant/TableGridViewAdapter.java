@@ -46,8 +46,8 @@ public class TableGridViewAdapter extends ArrayAdapter<Boolean> {
 
         TextView text = (TextView) view;
         text.setText(String.format("%d", position + 1));
-        if (!TableFragment.tableViews.containsKey(position)) {
-            TableFragment.tableViews.put(position, text);
+        if (!StaticData.i().tableViews().containsKey(position)) {
+            StaticData.i().tableViews().put(position, text);
         }
 
         // Set table as available
