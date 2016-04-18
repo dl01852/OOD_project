@@ -9,10 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.ood.restaurant.dummy.DummyContent;
-import com.ood.restaurant.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.ood.restaurant.Data.DummyContent;
+import com.ood.restaurant.Data.DummyContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.

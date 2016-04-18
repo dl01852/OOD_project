@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ood.restaurant.CustomizeOrderFragment.OnListFragmentInteractionListener;
-import com.ood.restaurant.dummy.DummyContent.DummyItem;
+import com.ood.restaurant.Data.DummyContent.DummyItem;
 
 import java.util.List;
 

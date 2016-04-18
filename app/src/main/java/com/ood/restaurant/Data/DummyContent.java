@@ -1,4 +1,4 @@
-package com.ood.restaurant.dummy;
+package com.ood.restaurant.Data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
