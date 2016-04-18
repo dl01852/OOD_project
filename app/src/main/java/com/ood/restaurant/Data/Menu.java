@@ -10,7 +10,7 @@ package com.ood.restaurant.Data;
  * 1. Change the code in MenuFragment.Java to use Food Objects to grab the Name,price and description
  * 2. Use Decorators and it's subparts to display condiments name and it's price!
  *
- * This menu class is irrevelant i believe. I just need the notes..
+ * This menu class is irrevelant i believe. I just need the notes.....
  *
  */
 public class Menu {
