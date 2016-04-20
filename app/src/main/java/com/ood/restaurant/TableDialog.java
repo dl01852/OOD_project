@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.ood.restaurant.commands.MakeAvailableCommand;
 import com.ood.restaurant.commands.SeatTableCommand;
 import com.ood.restaurant.commands.TableReceiver;
+import com.ood.restaurant.fragments.MenuFragment;
 import com.ood.restaurant.fragments.TableFragment;
 
 public class TableDialog extends DialogFragment implements View.OnClickListener {
@@ -33,7 +34,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         btnMakeAvailable.setOnClickListener(this);
         btnAddOrder.setOnClickListener(this);
 
-        if (TableFragment.tableList.get(table)) {
+        if (StaticData.i().tables().get(table)) {
             toggleButton(btnSeatTable);
         } else {
             toggleButton(btnMakeAvailable);
@@ -54,8 +55,6 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        SeatTableCommand seatCommand = new SeatTableCommand();
-        MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
         switch( v.getId() ) {
             case R.id.btn_seat_table:
                 seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
@@ -66,7 +65,15 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
                 break;
 
             case R.id.btn_add_order:
-                // TODO: Open menu when this is triggered
+                // Close dialog
+                this.dismiss();
+
+                // Open menu fragment
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_layout, new MenuFragment())
+                        .commit();
                 break;
         }
     }
