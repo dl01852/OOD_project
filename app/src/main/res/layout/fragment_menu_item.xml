@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="20dp"
+        card_view:cardElevation="5dp">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="ITEM"
+                  android:paddingRight="170dp"
+                  android:paddingBottom="10dp"
+                  android:id="@+id/item_name"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="PRICE!!"
+                  android:layout_alignParentRight="true"
+                  android:id="@+id/item_price"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/item_name"
+                  android:text="Description"
+                  android:id="@+id/item_description"/>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:id="@+id/blankLine"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/item_description"
+                android:background="#aaa"
+                />
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CUSTOMIZE"
+                android:layout_below="@id/blankLine"
+                android:layout_alignParentRight="true"
+                android:backgroundTint="#fffdfd"
+                android:textColor="#03fcfc"
+                android:id="@+id/btnCustomize"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ORDER"
+                android:backgroundTint="@color/cardview_light_background"
+                android:textColor="#03fcfc"
+                android:layout_toLeftOf="@id/btnCustomize"
+                android:layout_below="@id/blankLine"
+                android:id="@+id/btnOrder"
+        />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
