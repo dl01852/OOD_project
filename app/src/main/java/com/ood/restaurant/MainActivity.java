@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.ood.restaurant.fragments.MenuFragment;
 import com.ood.restaurant.fragments.TableFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity
                 setFragment(new TableFragment());
                 break;
             case R.id.nav_menu:
-                // TODO: Add MenuFragment here
+                setFragment(new MenuFragment());
                 break;
         }
 
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity
      * Set fragment
      * @param fragment Fragment to load
      */
-    private void setFragment(Fragment fragment) {
+    public void setFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_layout, fragment)

@@ -8,4 +8,5 @@
     <dimen name="dialog_padding">16dp</dimen>
     <dimen name="grid_view_spacing">40dp</dimen>
     <dimen name="table_size">100dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>
