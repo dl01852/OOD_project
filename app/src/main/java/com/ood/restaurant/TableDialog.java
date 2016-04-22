@@ -7,11 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import com.ood.restaurant.commands.MakeAvailableCommand;
-import com.ood.restaurant.commands.SeatTableCommand;
-import com.ood.restaurant.commands.TableReceiver;
+import com.ood.restaurant.commands.*;
 import com.ood.restaurant.fragments.TableFragment;
+
 
 public class TableDialog extends DialogFragment implements View.OnClickListener {
 
@@ -54,20 +52,21 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        SeatTableCommand seatCommand = new SeatTableCommand();
-        MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
-        switch( v.getId() ) {
-            case R.id.btn_seat_table:
-                seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
-                break;
+                SeatTableCommand seatCommand = new SeatTableCommand();
+                MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
+                switch( v.getId() ) {
+                    case R.id.btn_seat_table:
+                        seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
+                        break;
 
-            case R.id.btn_make_available:
-                makeAvailableCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
-                break;
+                    case R.id.btn_make_available:
+                        makeAvailableCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
+                        break;
 
-            case R.id.btn_add_order:
-                // TODO: Open menu when this is triggered
-                break;
+                    case R.id.btn_add_order:
+                        // TODO: Open menu when this is triggered
+                        break;
+
         }
     }
 }
