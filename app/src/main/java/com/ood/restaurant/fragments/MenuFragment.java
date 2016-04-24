@@ -18,6 +18,7 @@ import com.ood.restaurant.StaticData;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by david-lewis on 4/5/2016.
@@ -55,19 +56,25 @@ public class MenuFragment extends Fragment {
 
 //                Object getDescription = food.getMethod("getDescription", null).invoke(null, null);
                 Method[] methods = food.getMethods();
-                double x = (Double) food.getMethod("cost", (Class[]) null).invoke(food.newInstance(), (Object[]) null);
-                for(Method method : methods)
-                {
-                    if(method.getName().equals("getDescription"))
-                    {
-                        tempData.itemDescription = (String) method.invoke(food.newInstance(), (Object[]) null);
-                        tempData.itemName = tempData.itemDescription;
-                    }
-                    else if(method.getName().equals("cost"))
-                    {
-                        tempData.itemPrice = (double)method.invoke(food.newInstance(), (Object[]) null);
-                    }
-                }
+                double cost = (Double) food.getMethod("cost", (Class[]) null).invoke(food.newInstance(), (Object[]) null);
+                String name = food.getMethod("getDescription", (Class[])null).invoke(food.newInstance(),(Object[]) null).toString();
+            tempData.itemDescription = name;
+            tempData.itemName = name;
+            tempData.itemPrice = cost;
+
+
+//            for(Method method : methods)
+//                {
+//                    if(method.getName().equals("getDescription"))
+//                    {
+//                        tempData.itemDescription = (String) method.invoke(food.newInstance(), (Object[]) null);
+//                        tempData.itemName = tempData.itemDescription;
+//                    }
+//                    else if(method.getName().equals("cost"))
+//                    {
+//                        tempData.itemPrice = (double)method.invoke(food.newInstance(), (Object[]) null);
+//                    }
+//                }
                 data.add(tempData);
 //
 //                tempData.itemDescription = getDescription.toString();
