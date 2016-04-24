@@ -7,20 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.ood.restaurant.R;
 import com.ood.restaurant.StaticData;
 import com.ood.restaurant.TableDialog;
 import com.ood.restaurant.TableGridViewAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class TableFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     public static GridView tableGrid;
-    public static TableGridViewAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
@@ -28,9 +23,8 @@ public class TableFragment extends Fragment implements AdapterView.OnItemClickLi
         tableGrid = (GridView) view;
 
         // Set the adapter
-        adapter = new TableGridViewAdapter(getActivity(),
-                R.layout.fragment_table, StaticData.i().tables());
-        tableGrid.setAdapter(adapter);
+        tableGrid.setAdapter(new TableGridViewAdapter(getActivity(),
+                R.layout.fragment_table, StaticData.i().tables()));
         tableGrid.setOnItemClickListener(this);
         return view;
     }
