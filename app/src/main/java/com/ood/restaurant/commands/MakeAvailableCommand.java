@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.widget.Button;
 
 import com.ood.restaurant.StaticData;
-import com.ood.restaurant.fragments.TableFragment;
 
 /**
  * Created by Archer on 4/10/16.
@@ -16,8 +15,7 @@ public class MakeAvailableCommand implements TableReceiver {
         toggleButton(btnSeatTable);
         toggleButton(btnMakeAvailable);
         toggleButton(btnAddOrder);
-        TableFragment.tableGrid.invalidateViews();
-        TableFragment.tableGrid.setAdapter(TableFragment.tableGrid.getAdapter());
+        ReloadTablesCommand.execute();
     }
 
     private void toggleButton(Button button) {

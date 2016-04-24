@@ -16,8 +16,7 @@ public class SeatTableCommand implements TableReceiver{
         toggleButton(btnSeatTable);
         toggleButton(btnMakeAvailable);
         toggleButton(btnAddOrder);
-        TableFragment.tableGrid.invalidateViews();
-        TableFragment.tableGrid.setAdapter(TableFragment.tableGrid.getAdapter());
+        ReloadTablesCommand.execute();
     }
 
     private void toggleButton(Button button) {

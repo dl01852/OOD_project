@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.ood.restaurant.fragments.TableFragment;
-
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -47,9 +45,6 @@ public class TableGridViewAdapter extends ArrayAdapter<Boolean> {
 
         TextView text = (TextView) view;
         text.setText(String.format(Locale.US, "%d", position + 1));
-//        if (!StaticData.i().tableViews().containsKey(position)) {
-//            StaticData.i().tableViews().put(position, text);
-//        }
 
         // Set table as available
         if (StaticData.i().tables().get(position)) {
