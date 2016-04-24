@@ -51,15 +51,13 @@
                 android:text="CUSTOMIZE"
                 android:layout_below="@id/blankLine"
                 android:layout_alignParentRight="true"
-                android:backgroundTint="#fffdfd"
-                android:textColor="#03fcfc"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:id="@+id/btnCustomize"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ORDER"
-                android:backgroundTint="@color/cardview_light_background"
-                android:textColor="#03fcfc"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_toLeftOf="@id/btnCustomize"
                 android:layout_below="@id/blankLine"
                 android:id="@+id/btnOrder"
