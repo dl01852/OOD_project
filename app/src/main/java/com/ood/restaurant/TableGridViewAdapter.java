@@ -47,7 +47,7 @@ public class TableGridViewAdapter extends ArrayAdapter<Boolean> {
         text.setText(String.format(Locale.US, "%d", position + 1));
 
         // Set table as available
-        if (StaticData.i().tables().get(position)) {
+        if (getItem(position)) {
             text.setBackgroundColor(Color.GREEN);
         } else {
             text.setBackgroundColor(Color.LTGRAY);
