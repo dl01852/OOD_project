@@ -9,8 +9,8 @@
 Android 5.0.1 (Lollipop) and later (API 21+)
 
 ### To Do:
-- [ ] Merge code together
-- [ ] Unit tests
+- [x] Merge code together
+- [ ] Unit tests?
 - [ ] Use cases
 - [ ] UML diagrams
 - [ ] Project goals
