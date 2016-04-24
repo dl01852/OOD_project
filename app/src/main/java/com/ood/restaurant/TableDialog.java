@@ -72,6 +72,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
                         .getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_layout, new MenuFragment())
+                        .addToBackStack("MenuFragment")
                         .commit();
                 break;
         }
