@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.ood.restaurant.commands.*;
 import com.ood.restaurant.fragments.MenuFragment;
+import com.ood.restaurant.fragments.TableFragment;
 
 public class TableDialog extends DialogFragment implements View.OnClickListener {
 
@@ -31,7 +31,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         btnMakeAvailable.setOnClickListener(this);
         btnAddOrder.setOnClickListener(this);
 
-        if (!StaticData.i().tables().get(table)) {
+        if (TableFragment.tableList.get(table)) {
             toggleButton(btnSeatTable);
         } else {
             toggleButton(btnMakeAvailable);
@@ -52,15 +52,21 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        SeatTableCommand seatCommand = new SeatTableCommand();
-        MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
         switch( v.getId() ) {
             case R.id.btn_seat_table:
-                seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
+                TableFragment.tableList.set(table, true);
+                toggleButton(btnSeatTable);
+                toggleButton(btnMakeAvailable);
+                toggleButton(btnAddOrder);
+                TableFragment.tableViews.get(table).setBackgroundColor(0xFFCCCCCC);
                 break;
 
             case R.id.btn_make_available:
-                makeAvailableCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
+                TableFragment.tableList.set(table, false);
+                toggleButton(btnSeatTable);
+                toggleButton(btnMakeAvailable);
+                toggleButton(btnAddOrder);
+                TableFragment.tableViews.get(table).setBackgroundColor(Color.GREEN);
                 break;
 
             case R.id.btn_add_order:
@@ -72,7 +78,6 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
                         .getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_layout, new MenuFragment())
-                        .addToBackStack("MenuFragment")
                         .commit();
                 break;
         }

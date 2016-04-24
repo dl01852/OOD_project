@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.ood.restaurant.fragments.TableFragment;
+
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class TableGridViewAdapter extends ArrayAdapter<Boolean> {
     private Context context;
@@ -44,13 +45,14 @@ public class TableGridViewAdapter extends ArrayAdapter<Boolean> {
         }
 
         TextView text = (TextView) view;
-        text.setText(String.format(Locale.US, "%d", position + 1));
+        text.setText(String.format("%d", position + 1));
+        if (!TableFragment.tableViews.containsKey(position)) {
+            TableFragment.tableViews.put(position, text);
+        }
 
         // Set table as available
-        if (getItem(position)) {
+        if (!getItem(position)) {
             text.setBackgroundColor(Color.GREEN);
-        } else {
-            text.setBackgroundColor(Color.LTGRAY);
         }
 
         return view;
