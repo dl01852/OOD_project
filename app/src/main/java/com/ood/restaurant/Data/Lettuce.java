@@ -7,7 +7,7 @@ package com.ood.restaurant.Data;
  * Have the burger object get passed in from the constructor.
  */
 
-public class Lettuce extends BurgerDecorator
+public class Lettuce extends Decorator
 {
     Food burger;
 
@@ -15,6 +15,7 @@ public class Lettuce extends BurgerDecorator
     {
         this.burger = burgerToOrder;
     }
+    public Lettuce(){}
 
     @Override
     public String getDescription()

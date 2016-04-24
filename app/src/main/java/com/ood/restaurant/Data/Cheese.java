@@ -2,7 +2,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Cheese extends BurgerDecorator
+public class Cheese extends Decorator
 {
     Food burger;
 

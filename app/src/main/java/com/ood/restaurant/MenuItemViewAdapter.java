@@ -18,6 +18,7 @@ public class MenuItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
     private LayoutInflater inflater;
     List<MenuItemData> MenuItems = Collections.emptyList(); // List of MenuItems.(OnBindViewHolder needs this)
+
     public MenuItemViewAdapter(Context context, List<MenuItemData> data)
     {
         inflater = LayoutInflater.from(context);

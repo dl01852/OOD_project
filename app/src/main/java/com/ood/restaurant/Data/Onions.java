@@ -2,7 +2,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Onions extends BurgerDecorator
+public class Onions extends Decorator
 {
     Food burger;
 

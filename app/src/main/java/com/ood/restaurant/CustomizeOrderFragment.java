@@ -9,8 +9,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.ood.restaurant.Data.Burger;
+import com.ood.restaurant.Data.Decorator;
 import com.ood.restaurant.Data.DummyContent;
 import com.ood.restaurant.Data.DummyContent.DummyItem;
+import com.ood.restaurant.Data.Food;
+import com.ood.restaurant.fragments.CustomizeItemViewAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -25,6 +34,10 @@ public class CustomizeOrderFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+
+    private RecyclerView recyclerView;
+    private CustomizeItemViewAdapter decoratorAdapter;
+    StaticData sData = StaticData.i();
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -44,31 +57,36 @@ public class CustomizeOrderFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+       View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
+        recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
+        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem());
 
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
+        return layout;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
+    public List<MenuItemData> converToMenuItem()
+    {
+        List<MenuItemData> data = new ArrayList<>();
+        try {
+            List<Decorator> derp = sData.getStuff().get(Class.forName("Burger"));
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+            for (Decorator d : derp) {
+                MenuItemData tempData = new MenuItemData();
+                tempData.itemDescription = d.getDescription();
+                tempData.itemName = d.getDescription();
+                tempData.itemPrice = d.cost();
+                data.add(tempData);
             }
-            recyclerView.setAdapter(new MyCustomizeOrderRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+
+
+        }catch (Exception e)
+        {
+            // Exception...
         }
-        return view;
+
+        return data;
     }
 
 
@@ -103,4 +121,6 @@ public class CustomizeOrderFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(DummyItem item);
     }
+
+
 }

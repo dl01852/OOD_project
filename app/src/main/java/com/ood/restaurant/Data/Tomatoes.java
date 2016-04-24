@@ -2,7 +2,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Tomatoes extends BurgerDecorator
+public class Tomatoes extends Decorator
 {
     Food burger;
 
@@ -10,6 +10,7 @@ public class Tomatoes extends BurgerDecorator
     {
         this.burger = burgerToOrder;
     }
+    public Tomatoes(){}
 
     @Override
     public String getDescription()
