@@ -1,4 +1,4 @@
-package com.ood.restaurant.Data;
+package src;
 /**
  * Created by david-lewis on 3/28/2016.
  *
@@ -7,7 +7,7 @@ package com.ood.restaurant.Data;
  * Have the burger object get passed in from the constructor.
  */
 
-public class Lettuce extends BurgerDecorator
+public class Lettuce extends Decorator
 {
     Food burger;
 
@@ -26,7 +26,6 @@ public class Lettuce extends BurgerDecorator
         // then return that(don't return null).
     }
 
-    @Override
     public double cost()
     {
 

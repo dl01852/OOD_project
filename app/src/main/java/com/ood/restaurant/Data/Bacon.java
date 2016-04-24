@@ -1,8 +1,8 @@
-package com.ood.restaurant.Data;
+package src;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Bacon extends BurgerDecorator
+public class Bacon extends Decorator
 {
     Food burger;
 
@@ -21,7 +21,6 @@ public class Bacon extends BurgerDecorator
         // then return that(don't return null).
     }
 
-    @Override
     public double cost()
     {
         //return .75;

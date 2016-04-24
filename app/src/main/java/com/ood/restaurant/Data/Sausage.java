@@ -1,8 +1,8 @@
-package com.ood.restaurant.Data;
+package src;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Sausage extends PizzaDecorator
+public class Sausage extends Decorator
 {
     Food pizza;
 
@@ -16,7 +16,6 @@ public class Sausage extends PizzaDecorator
         return pizza.getDescription() + "with Sausage ";
     }
 
-    @Override
     public double cost()
     {
         return pizza.cost() + 0;

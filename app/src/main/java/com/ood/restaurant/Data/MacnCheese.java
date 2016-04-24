@@ -1,21 +1,21 @@
 package src;
 /**
- * Created by Nicholas on 4/16/2016.
+ * Created by Nicholas on 4/24/2016.
  */
-public class Tomatoes extends Decorator
+public class MacnCheese extends Decorator
 {
-    Food burger;
+    Food friedChicken;
 
-    public Tomatoes(Food burgerToOrder)
+    public MacnCheese(Food chickenToOrder)
     {
-        this.burger = burgerToOrder;
+        this.friedChicken = chickenToOrder;
     }
 
     @Override
     public String getDescription()
     {
 
-        return burger.getDescription() + "with tomato ";
+        return friedChicken.getDescription() + "with Mac & Cheese ";
         // get the description from the burger object and then add on the description from this class
         // soo for this particular class, the description you'd add is  ' with lettuce'
         // then return that(don't return null).
@@ -23,8 +23,7 @@ public class Tomatoes extends Decorator
 
     public double cost()
     {
-
-        return burger.cost() + 0;
+        return friedChicken.cost();
         // get the cost from the burger object and then add on the cost for lettuce(if there is a cost) and return that value.
         // (don't return 0)
     }
