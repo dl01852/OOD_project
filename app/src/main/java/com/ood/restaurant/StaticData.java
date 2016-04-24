@@ -54,6 +54,7 @@ public class StaticData {
     public ArrayList<Boolean> tables() {
         return this.tableList;
     }
+
     public List<Class> getMenu()
     {
         populateMenu();
@@ -83,4 +84,6 @@ public class StaticData {
     }
 
 
+
 }
+
