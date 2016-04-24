@@ -29,6 +29,7 @@ public class StaticData {
         for (int i = 0; i < 15; i++) {
             tableList.add(true);
         }
+        populateMenu();
     }
 
 //    public void addMenuItem(Food item)
@@ -57,7 +58,6 @@ public class StaticData {
 
     public List<Class> getMenu()
     {
-        populateMenu();
         return this.Menu;
     }
 

@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,23 +48,23 @@ public class MenuFragment extends Fragment {
 //        String[] itemNames = {"item 1", "item 2", "item 3", "item 4"};
 //        Double[] itemPrices = {5.99, 6.99, 7.99, 8.99};
 //        String[] itemDescriptions = {"description 1", "description 2", "description 3", "description 4"};
-
+        try {
         for(Class food: menu)
         {
             MenuItemData tempData = new MenuItemData();
-            try {
-                Object getDescription = food.getMethod("getDescription", null).invoke(null, null);
+
+//                Object getDescription = food.getMethod("getDescription", null).invoke(null, null);
                 Method[] methods = food.getMethods();
                 for(Method method : methods)
                 {
                     if(method.getName().equals("getDescription"))
                     {
-                       tempData.itemDescription = method.invoke(food).toString();
-                        tempData.itemName = method.invoke(food).toString();
+                        tempData.itemDescription = (String) method.invoke(food.newInstance(), (Object[]) null);
+                        tempData.itemName = tempData.itemDescription;
                     }
                     else if(method.getName().equals("cost"))
                     {
-                        tempData.itemPrice = (double)method.invoke(food);
+                        tempData.itemPrice = (double)method.invoke(food.newInstance(), (Object[]) null);
                     }
                 }
                 data.add(tempData);
@@ -72,10 +73,12 @@ public class MenuFragment extends Fragment {
 //                tempData.itemPrice = food.cost();
 //                tempData.itemName = food.getDescription(); // same as itemDescription... This should change but fuck it for now
 
-            }catch (Exception e)
-            {
-                // err...
-            }
+
+        }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            // err...
         }
         // load test Data into the ArrayList
 //        for(int i = 0; i < itemNames.length; i++)
