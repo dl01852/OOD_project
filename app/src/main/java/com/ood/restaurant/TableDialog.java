@@ -8,18 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.ood.restaurant.commands.MakeAvailableCommand;
-import com.ood.restaurant.commands.SeatTableCommand;
-import com.ood.restaurant.commands.TableReceiver;
+import com.ood.restaurant.commands.*;
 import com.ood.restaurant.fragments.MenuFragment;
-import com.ood.restaurant.fragments.TableFragment;
 
 public class TableDialog extends DialogFragment implements View.OnClickListener {
 
     private int table;
     private Button btnSeatTable, btnMakeAvailable, btnAddOrder;
-    private SeatTableCommand seatCommand = new SeatTableCommand();
-    private MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +52,8 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+        SeatTableCommand seatCommand = new SeatTableCommand();
+        MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
         switch( v.getId() ) {
             case R.id.btn_seat_table:
                 seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
