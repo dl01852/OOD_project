@@ -55,6 +55,7 @@ public class MenuFragment extends Fragment {
 
 //                Object getDescription = food.getMethod("getDescription", null).invoke(null, null);
                 Method[] methods = food.getMethods();
+                double x = (Double) food.getMethod("cost", (Class[]) null).invoke(food.newInstance(), (Object[]) null);
                 for(Method method : methods)
                 {
                     if(method.getName().equals("getDescription"))
