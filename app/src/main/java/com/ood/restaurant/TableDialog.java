@@ -18,6 +18,8 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
 
     private int table;
     private Button btnSeatTable, btnMakeAvailable, btnAddOrder;
+    private SeatTableCommand seatCommand = new SeatTableCommand();
+    private MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

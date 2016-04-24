@@ -1,21 +1,21 @@
 package com.ood.restaurant.commands;
 
-import com.ood.restaurant.fragments.TableFragment;
-
 import android.graphics.Color;
 import android.widget.Button;
+
+import com.ood.restaurant.StaticData;
 
 /**
  * Created by Archer on 4/10/16.
  */
-public class SeatTableCommand implements TableReceiver{
+public class MakeAvailableCommand implements TableReceiver {
     @Override
     public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder, int table) {
-        TableFragment.tableList.set(table, true);
+        StaticData.i().tables().set(table, false);
         toggleButton(btnSeatTable);
         toggleButton(btnMakeAvailable);
         toggleButton(btnAddOrder);
-        TableFragment.tableViews.get(table).setBackgroundColor(0xFFCCCCCC);
+        StaticData.i().tableViews().get(table).setBackgroundColor(Color.GREEN);
     }
 
     private void toggleButton(Button button) {
