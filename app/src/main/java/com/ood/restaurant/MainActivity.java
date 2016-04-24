@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
      * Set fragment
      * @param fragment Fragment to load
      */
-    public void setFragment(Fragment fragment) {
+    private void setFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_layout, fragment)
