@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.widget.Button;
 
 import com.ood.restaurant.StaticData;
+import com.ood.restaurant.fragments.TableFragment;
 
 /**
  * Created by Archer on 4/10/16.
@@ -11,11 +12,12 @@ import com.ood.restaurant.StaticData;
 public class MakeAvailableCommand implements TableReceiver {
     @Override
     public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder, int table) {
-        StaticData.i().tables().set(table, false);
+        StaticData.i().tables().set(table, true);
         toggleButton(btnSeatTable);
         toggleButton(btnMakeAvailable);
         toggleButton(btnAddOrder);
-        StaticData.i().tableViews().get(table).setBackgroundColor(Color.GREEN);
+        TableFragment.tableGrid.invalidateViews();
+        TableFragment.tableGrid.setAdapter(TableFragment.tableGrid.getAdapter());
     }
 
     private void toggleButton(Button button) {

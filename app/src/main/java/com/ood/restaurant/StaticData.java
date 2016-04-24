@@ -12,14 +12,14 @@ public class StaticData {
 
     private static StaticData instance = null;
     private ArrayList<Boolean> tableList = new ArrayList<>();
-    private HashMap<Integer, TextView> tableViews = new HashMap<>();
+//    private HashMap<Integer, TextView> tableViews = new HashMap<>();
 
     /**
      * Private constructor
      */
     private StaticData() {
         for (int i = 0; i < 15; i++) {
-            tableList.add(false);
+            tableList.add(true);
         }
     }
 
@@ -46,7 +46,7 @@ public class StaticData {
      * Get the table text views
      * @return HashMap of text views
      */
-    public HashMap<Integer, TextView> tableViews() {
-        return this.tableViews;
-    }
+//    public HashMap<Integer, TextView> tableViews() {
+//        return this.tableViews;
+//    }
 }
