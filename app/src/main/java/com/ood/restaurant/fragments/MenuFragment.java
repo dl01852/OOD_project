@@ -1,5 +1,6 @@
 package com.ood.restaurant.fragments;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,8 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.ood.restaurant.CustomizeOrderFragment;
 import com.ood.restaurant.Data.Food;
+import com.ood.restaurant.Listeners;
 import com.ood.restaurant.MenuItemData;
 import com.ood.restaurant.MenuItemViewAdapter;
 import com.ood.restaurant.R;
@@ -18,12 +22,11 @@ import com.ood.restaurant.StaticData;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by david-lewis on 4/5/2016.
  */
-public class MenuFragment extends Fragment {
+public class MenuFragment extends Fragment implements Listeners.OnCustomizeListener {
 
     private RecyclerView recyclerView;
     private MenuItemViewAdapter menuAdapter;
@@ -33,7 +36,7 @@ public class MenuFragment extends Fragment {
     {
         View layout = inflater.inflate(R.layout.add_order, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.menu_List);
-        menuAdapter = new MenuItemViewAdapter(getActivity(),getMenuData());
+        menuAdapter = new MenuItemViewAdapter(getActivity(),getMenuData(), this);
         recyclerView.setAdapter(menuAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -103,5 +106,19 @@ public class MenuFragment extends Fragment {
 
         return data;
     }
-}
 
+    @Override
+    public void onCustomizeClicked() {
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_layout, new CustomizeOrderFragment())
+                .addToBackStack("CustomizeOrderFragment")
+                .commit();
+    }
+
+    @Override
+    public void onOrderClicked() {
+
+    }
+}

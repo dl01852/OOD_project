@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ood.restaurant.Data.Burger;
 import com.ood.restaurant.Data.Decorator;
@@ -59,53 +60,54 @@ public class CustomizeOrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        Toast.makeText(getActivity(), "IT WORKRR", Toast.LENGTH_LONG).show();
        View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
-        recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
-        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem());
+//        recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
+//        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem());
 
         return layout;
     }
 
-    public List<MenuItemData> converToMenuItem()
-    {
-        List<MenuItemData> data = new ArrayList<>();
-        try {
-            List<Decorator> derp = sData.getStuff().get(Class.forName("Burger"));
+//    public List<MenuItemData> converToMenuItem()
+//    {
+//        List<MenuItemData> data = new ArrayList<>();
+//        try {
+//            List<Decorator> derp = sData.getStuff().get(Class.forName("Burger"));
+//
+//            for (Decorator d : derp) {
+//                MenuItemData tempData = new MenuItemData();
+//                tempData.itemDescription = d.getDescription();
+//                tempData.itemName = d.getDescription();
+//                tempData.itemPrice = d.cost();
+//                data.add(tempData);
+//            }
+//
+//
+//        }catch (Exception e)
+//        {
+//            // Exception...
+//        }
+//
+//        return data;
+//    }
 
-            for (Decorator d : derp) {
-                MenuItemData tempData = new MenuItemData();
-                tempData.itemDescription = d.getDescription();
-                tempData.itemName = d.getDescription();
-                tempData.itemPrice = d.cost();
-                data.add(tempData);
-            }
 
-
-        }catch (Exception e)
-        {
-            // Exception...
-        }
-
-        return data;
-    }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnListFragmentInteractionListener) {
+//            mListener = (OnListFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnListFragmentInteractionListener");
+//        }
+//    }
+//
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        mListener = null;
+//    }
 
     /**
      * This interface must be implemented by activities that contain this

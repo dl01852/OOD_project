@@ -1,11 +1,11 @@
 package com.ood.restaurant;
 
 import android.content.Context;
-import android.support.v7.widget.ContentFrameLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Collections;
@@ -17,12 +17,14 @@ import java.util.List;
 public class MenuItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
     private LayoutInflater inflater;
+    private Listeners.OnCustomizeListener mListener;
     List<MenuItemData> MenuItems = Collections.emptyList(); // List of MenuItems.(OnBindViewHolder needs this)
 
-    public MenuItemViewAdapter(Context context, List<MenuItemData> data)
+    public MenuItemViewAdapter(Context context, List<MenuItemData> data, Listeners.OnCustomizeListener listener)
     {
         inflater = LayoutInflater.from(context);
         MenuItems = data;
+        mListener = listener;
     }
 
     @Override // Note:This function must return whatever the type is in the Recycler.Adapter<Type>
@@ -42,6 +44,17 @@ public class MenuItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.setItem_Name(currentItem.itemName);
         holder.setItem_Price(Double.toString(currentItem.itemPrice)); // price might want to be represented as string
         holder.setItem_description(currentItem.itemDescription);
+
+        Button btn_customize = (Button) holder.mView.findViewById(R.id.btnCustomize);
+        btn_customize.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onCustomizeClicked();
+                }
+            }
+        });
     }
 
     @Override
@@ -59,10 +72,12 @@ class MyHolder extends RecyclerView.ViewHolder
     private TextView item_Name;
     private TextView item_Price;
     private TextView item_description;
+    public View mView;
 
 
     public MyHolder(View itemView) {
         super(itemView);
+        mView = itemView;
         item_Name = (TextView) itemView.findViewById(R.id.item_name);
         item_Price = (TextView) itemView.findViewById(R.id.item_price);
         item_description = (TextView) itemView.findViewById(R.id.item_description);
