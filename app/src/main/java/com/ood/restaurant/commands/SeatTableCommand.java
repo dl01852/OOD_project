@@ -1,6 +1,7 @@
 package com.ood.restaurant.commands;
 
 import com.ood.restaurant.StaticData;
+import com.ood.restaurant.fragments.TableFragment;
 
 import android.graphics.Color;
 import android.widget.Button;
@@ -11,11 +12,11 @@ import android.widget.Button;
 public class SeatTableCommand implements TableReceiver{
     @Override
     public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder, int table) {
-        StaticData.i().tables().set(table, true);
+        StaticData.i().tables().set(table, false);
         toggleButton(btnSeatTable);
         toggleButton(btnMakeAvailable);
         toggleButton(btnAddOrder);
-        StaticData.i().tableViews().get(table).setBackgroundColor(0xFFCCCCCC);
+        ReloadTablesCommand.execute();
     }
 
     private void toggleButton(Button button) {

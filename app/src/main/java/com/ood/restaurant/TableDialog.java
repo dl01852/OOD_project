@@ -31,7 +31,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         btnMakeAvailable.setOnClickListener(this);
         btnAddOrder.setOnClickListener(this);
 
-        if (StaticData.i().tables().get(table)) {
+        if (!StaticData.i().tables().get(table)) {
             toggleButton(btnSeatTable);
         } else {
             toggleButton(btnMakeAvailable);

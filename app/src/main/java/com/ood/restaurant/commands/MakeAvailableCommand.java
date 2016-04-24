@@ -11,11 +11,11 @@ import com.ood.restaurant.StaticData;
 public class MakeAvailableCommand implements TableReceiver {
     @Override
     public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder, int table) {
-        StaticData.i().tables().set(table, false);
+        StaticData.i().tables().set(table, true);
         toggleButton(btnSeatTable);
         toggleButton(btnMakeAvailable);
         toggleButton(btnAddOrder);
-        StaticData.i().tableViews().get(table).setBackgroundColor(Color.GREEN);
+        ReloadTablesCommand.execute();
     }
 
     private void toggleButton(Button button) {

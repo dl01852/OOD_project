@@ -7,22 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.ood.restaurant.R;
 import com.ood.restaurant.StaticData;
 import com.ood.restaurant.TableDialog;
 import com.ood.restaurant.TableGridViewAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class TableFragment extends Fragment implements AdapterView.OnItemClickListener {
+
+    public static GridView tableGrid;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
         View view = inflater.inflate(R.layout.fragment_table_list, container, false);
-        GridView tableGrid = (GridView) view;
+        tableGrid = (GridView) view;
 
         // Set the adapter
         tableGrid.setAdapter(new TableGridViewAdapter(getActivity(),
