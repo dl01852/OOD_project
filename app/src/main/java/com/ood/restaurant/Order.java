@@ -10,9 +10,10 @@ import com.ood.restaurant.Data.Food;
 public class Order {
 
     private int id;
-    String orderDescription;
-    Food food;
+    private String orderDescription;
+    private Food food;
 
+    // An assload of constructors cause i don't know which ones i'll need yet lol
     public Order(int id,Food food,String orderDescription)
     {
         this.id = id;
@@ -26,10 +27,23 @@ public class Order {
         this.orderDescription = orderDescription;
     }
 
-    public Order(int)
+    public Order(int id, Food food)
     {
-
+        this.id = id;
+        this.food = food;
+        this.orderDescription = food.getDescription();
     }
+    public Order(){}
 
+
+    // Setters
+    public void setID(int id){this.id = id;}
+    public void setOrderDescription(String orderDescription){this.orderDescription = orderDescription;}
+    public void setFood(Food food){this.food = food;}
+
+    //getters
+    public int getId(){return this.id;}
+    public String getOrderDescription(){return this.orderDescription;}
+    public Food getFood(){return this.food;}
 
 }
