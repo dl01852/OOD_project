@@ -62,34 +62,34 @@ public class CustomizeOrderFragment extends Fragment {
     {
         Toast.makeText(getActivity(), "IT WORKRR", Toast.LENGTH_LONG).show();
        View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
-//        recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
-//        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem());
+     recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
+        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem());
 
         return layout;
     }
 
-//    public List<MenuItemData> converToMenuItem()
-//    {
-//        List<MenuItemData> data = new ArrayList<>();
-//        try {
-//            List<Decorator> derp = sData.getStuff().get(Class.forName("Burger"));
-//
-//            for (Decorator d : derp) {
-//                MenuItemData tempData = new MenuItemData();
-//                tempData.itemDescription = d.getDescription();
-//                tempData.itemName = d.getDescription();
-//                tempData.itemPrice = d.cost();
-//                data.add(tempData);
-//            }
-//
-//
-//        }catch (Exception e)
-//        {
-//            // Exception...
-//        }
-//
-//        return data;
-//    }
+    public List<MenuItemData> converToMenuItem()
+    {
+        List<MenuItemData> data = new ArrayList<>();
+        try {
+            List<Decorator> derp = sData.getStuff().get(Class.forName("Burger"));
+
+            for (Decorator d : derp) {
+                MenuItemData tempData = new MenuItemData();
+                tempData.itemDescription = d.getDescription();
+                tempData.itemName = d.getDescription();
+                tempData.itemPrice = d.cost();
+                data.add(tempData);
+            }
+
+
+        }catch (Exception e)
+        {
+            // Exception...
+        }
+
+        return data;
+    }
 
 
 //    @Override

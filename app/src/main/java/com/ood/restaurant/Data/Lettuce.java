@@ -10,6 +10,8 @@ package com.ood.restaurant.Data;
 public class Lettuce extends Decorator
 {
     Food burger;
+    String name = "Lettuce";
+    double cost = 0;
 
     public Lettuce(Food burgerToOrder)
     {

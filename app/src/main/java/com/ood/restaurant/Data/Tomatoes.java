@@ -5,6 +5,8 @@ package com.ood.restaurant.Data;
 public class Tomatoes extends Decorator
 {
     Food burger;
+    String tomatoe = "Tomatoe";
+    double cost = .25;
 
     public Tomatoes(Food burgerToOrder)
     {
@@ -26,7 +28,7 @@ public class Tomatoes extends Decorator
     public double cost()
     {
 
-        return burger.cost() + 0;
+        return burger.cost() + cost;
         // get the cost from the burger object and then add on the cost for lettuce(if there is a cost) and return that value.
         // (don't return 0)
     }
