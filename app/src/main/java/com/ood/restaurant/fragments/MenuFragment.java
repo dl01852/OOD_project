@@ -73,7 +73,7 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
     }
 
     @Override
-    public void onCustomizeClicked() {
+    public void onCustomizeClicked(String itemName) { // or maybe args.Put()??
 //        getActivity()
 //                .getSupportFragmentManager()
 //                .beginTransaction()
@@ -85,7 +85,8 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
 //        args.putInt("room_number", room_number);
 //        args.putString("date_from", date_from);
 //        args.putString("date_to", date_to);
-        args.putString("title", "test");
+        args.putString("itemName",itemName);
+        args.putString("title",itemName);
         CustomizeOrderFragment dialog = new CustomizeOrderFragment();
         dialog.setArguments(args);
         dialog.show(getActivity().getSupportFragmentManager(), "Dialog");

@@ -2,7 +2,7 @@ package com.ood.restaurant;
 
 public class Listeners {
     public interface OnCustomizeListener {
-        void onCustomizeClicked();
+        void onCustomizeClicked(String itemName); // variable string itemName?
         void onOrderClicked();
     }
 }

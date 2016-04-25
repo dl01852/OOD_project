@@ -40,7 +40,7 @@ public class MenuItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
     public void onBindViewHolder(MyHolder holder, int position)
     {// this function binds each Menu XML with it's respective data.
 
-        MenuItemData currentItem = MenuItems.get(position);
+        final MenuItemData currentItem = MenuItems.get(position);
         holder.setItem_Name(currentItem.itemName);
         holder.setItem_Price(Double.toString(currentItem.itemPrice)); // price might want to be represented as string
         holder.setItem_description(currentItem.itemDescription);
@@ -51,7 +51,7 @@ public class MenuItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
-                    mListener.onCustomizeClicked();
+                    mListener.onCustomizeClicked(currentItem.itemName); // possibly put name here??
                 }
             }
         });

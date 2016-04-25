@@ -62,20 +62,21 @@ public class CustomizeOrderFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         super.getDialog().setTitle(getArguments().getString("title"));
-
+        String itemName = getArguments().getString("itemName");
         Toast.makeText(getActivity(), "IT WORKRR", Toast.LENGTH_LONG).show();
         View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
-        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem());
+        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem(itemName));
         recyclerView.setAdapter(decoratorAdapter);
         return layout;
     }
 
-    public List<MenuItemData> converToMenuItem()
+    public List<MenuItemData> converToMenuItem(String itemName)
     {
         List<MenuItemData> data = new ArrayList<>();
+        String className = "com.ood.restaurant.Data."+itemName;
         try {
-            List<Decorator> derp = sData.getStuff().get(Class.forName("com.ood.restaurant.Data.Burger"));
+            List<Decorator> derp = sData.getStuff().get(Class.forName(className));
 
             for (Decorator d : derp) {
                 MenuItemData tempData = new MenuItemData();

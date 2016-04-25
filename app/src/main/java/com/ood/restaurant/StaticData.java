@@ -84,11 +84,12 @@ public class StaticData {
 
         // Condiments for a Pizza
         List<Decorator> pizzaDecorators = new ArrayList<>();
+         pizzaDecorators.add(new Pepperoni());
 //        pizzaDecorators.add(new Olives());
 //        pizzaDecorators.add(new Sausage());
 //        pizzaDecorators.add(new Mushrooms());
 //        pizzaDecorators.add(new BaconBits());
-//        pizzaDecorators.add(new Pepperoni());
+
 
         ItemsToDecorators.put(Pizza.class,pizzaDecorators);
     }
