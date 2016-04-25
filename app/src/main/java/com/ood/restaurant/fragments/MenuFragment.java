@@ -50,8 +50,7 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
             for (Class food : menu) {
                 MenuItemData tempData = new MenuItemData();
 
-//                Object getDescription = food.getMethod("getDescription", null).invoke(null, null);df
-                Method[] methods = food.getMethods();
+//                Object getDescription = food.getMethod("getDescription", null).invoke(null, null);
                 double cost = (Double) food.getMethod("cost", (Class[]) null).invoke(food.newInstance(), (Object[]) null);
                 String name = food.getMethod("getDescription", (Class[]) null).invoke(food.newInstance(), (Object[]) null).toString();
                 tempData.itemDescription = name;

@@ -28,7 +28,6 @@ public class StaticData {
     private static StaticData instance = null;
     private ArrayList<Boolean> tableList = new ArrayList<>();
     private List<Class> Menu = new ArrayList<>();
-    private HashMap<>
     public HashMap<Class, List<Decorator>> ItemsToDecorators = new HashMap<>();
 
     /**
@@ -80,7 +79,7 @@ public class StaticData {
         burgerDecorators.add(new Lettuce());
 //        burgerDecorators.add(new Onions());
 //        burgerDecorators.add(new Cheese());
-//        burgerDecorators.add(new Bacon());as
+//        burgerDecorators.add(new Bacon());
         ItemsToDecorators.put(Burger.class, burgerDecorators);
 
         // Condiments for a Pizza
