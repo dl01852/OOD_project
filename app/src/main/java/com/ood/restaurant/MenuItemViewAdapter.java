@@ -55,6 +55,17 @@ public class MenuItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
                 }
             }
         });
+
+//        Button btn_order = (Button) holder.mView.findViewById(R.id.btnOrder);
+//        btn_customize.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                if (mListener != null) {
+//                    mListener.onOrderClicked();
+//                }
+//            }
+//        });
     }
 
     @Override

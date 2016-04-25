@@ -1,4 +1,7 @@
 package com.ood.restaurant.Data;
+
+import android.widget.Toast;
+
 /**
  * Created by david-lewis on 3/28/2016.
  *
@@ -45,5 +48,10 @@ public class Lettuce extends Decorator
         return burger.cost() + 0;
         // get the cost from the burger object and then add on the cost for lettuce(if there is a cost) and return that value.
         // (don't return 0)
+    }
+
+    @Override
+    public String orderMessage() {
+        return "Lettuce Added...";
     }
 }

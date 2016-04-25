@@ -23,4 +23,9 @@ public class Burger extends Food
         // then return the cost.
         return cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Burger Added...";
+    }
 }

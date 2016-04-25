@@ -14,4 +14,6 @@ public abstract class Food
     }
 
     public abstract double cost();
+
+    public abstract String orderMessage();
 }

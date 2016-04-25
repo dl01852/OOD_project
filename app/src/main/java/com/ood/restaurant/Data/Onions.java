@@ -28,4 +28,9 @@ public class Onions extends Decorator
         // get the cost from the burger object and then add on the cost for lettuce(if there is a cost) and return that value.
         // (don't return 0)
     }
+
+    @Override
+    public String orderMessage() {
+        return "Onions Added...";
+    }
 }
