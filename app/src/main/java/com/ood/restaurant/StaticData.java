@@ -28,6 +28,7 @@ public class StaticData {
     private static StaticData instance = null;
     private ArrayList<Boolean> tableList = new ArrayList<>();
     private List<Class> Menu = new ArrayList<>();
+    private HashMap<>
     public HashMap<Class, List<Decorator>> ItemsToDecorators = new HashMap<>();
 
     /**
