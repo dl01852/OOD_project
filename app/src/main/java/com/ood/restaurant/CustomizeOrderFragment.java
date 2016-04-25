@@ -76,7 +76,7 @@ public class CustomizeOrderFragment extends DialogFragment {
         List<MenuItemData> data = new ArrayList<>();
         String className = "com.ood.restaurant.Data."+itemName;
         try {
-            List<Decorator> derp = sData.getStuff().get(Class.forName(className));
+            List<Decorator> derp = sData.getStuff().get(Class.forName(className.trim()));
 
             for (Decorator d : derp) {
                 MenuItemData tempData = new MenuItemData();
