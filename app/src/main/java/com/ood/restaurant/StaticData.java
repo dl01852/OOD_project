@@ -1,11 +1,19 @@
 package com.ood.restaurant;
 
+import com.ood.restaurant.Data.Bacon;
+import com.ood.restaurant.Data.BaconBits;
 import com.ood.restaurant.Data.Burger;
+import com.ood.restaurant.Data.Cheese;
 import com.ood.restaurant.Data.Decorator;
 import com.ood.restaurant.Data.Food;
 import com.ood.restaurant.Data.Lettuce;
 import com.ood.restaurant.Data.Menu;
+import com.ood.restaurant.Data.Mushrooms;
+import com.ood.restaurant.Data.Olives;
+import com.ood.restaurant.Data.Onions;
+import com.ood.restaurant.Data.Pepperoni;
 import com.ood.restaurant.Data.Pizza;
+import com.ood.restaurant.Data.Sausage;
 import com.ood.restaurant.Data.Tomatoes;
 
 import java.util.ArrayList;
@@ -30,6 +38,7 @@ public class StaticData {
             tableList.add(true);
         }
         populateMenu();
+        addStuff();
     }
 
 //    public void addMenuItem(Food item)
@@ -64,10 +73,24 @@ public class StaticData {
     private void addStuff()
     {
         // LOL SUCH BAD CODE!
+        // Condiments for a Burger.
         List<Decorator> burgerDecorators = new ArrayList<>();
         burgerDecorators.add(new Tomatoes());
         burgerDecorators.add(new Lettuce());
-        ItemsToDecorators.put(Burger.class,burgerDecorators);
+//        burgerDecorators.add(new Onions());
+//        burgerDecorators.add(new Cheese());
+//        burgerDecorators.add(new Bacon());
+        ItemsToDecorators.put(Burger.class, burgerDecorators);
+
+        // Condiments for a Pizza
+        List<Decorator> pizzaDecorators = new ArrayList<>();
+//        pizzaDecorators.add(new Olives());
+//        pizzaDecorators.add(new Sausage());
+//        pizzaDecorators.add(new Mushrooms());
+//        pizzaDecorators.add(new BaconBits());
+//        pizzaDecorators.add(new Pepperoni());
+
+        ItemsToDecorators.put(Pizza.class,pizzaDecorators);
     }
 
     private void populateMenu()
@@ -79,7 +102,7 @@ public class StaticData {
 
     public HashMap<Class,List<Decorator>> getStuff()
     {
-        addStuff();
+
         return ItemsToDecorators;
     }
 
