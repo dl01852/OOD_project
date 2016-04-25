@@ -79,7 +79,7 @@ public class StaticData {
         burgerDecorators.add(new Lettuce());
 //        burgerDecorators.add(new Onions());
 //        burgerDecorators.add(new Cheese());
-//        burgerDecorators.add(new Bacon());
+//        burgerDecorators.add(new Bacon());as
         ItemsToDecorators.put(Burger.class, burgerDecorators);
 
         // Condiments for a Pizza

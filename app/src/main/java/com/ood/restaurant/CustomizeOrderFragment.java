@@ -2,6 +2,7 @@ package com.ood.restaurant;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,7 @@ import java.util.List;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class CustomizeOrderFragment extends Fragment {
+public class CustomizeOrderFragment extends DialogFragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -60,11 +61,13 @@ public class CustomizeOrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        Toast.makeText(getActivity(), "IT WORKRR", Toast.LENGTH_LONG).show();
-       View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
-     recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
-        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem());
+        super.getDialog().setTitle(getArguments().getString("title"));
 
+        Toast.makeText(getActivity(), "IT WORKRR", Toast.LENGTH_LONG).show();
+        View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
+        recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
+        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem());
+        recyclerView.setAdapter(decoratorAdapter);
         return layout;
     }
 
@@ -72,13 +75,16 @@ public class CustomizeOrderFragment extends Fragment {
     {
         List<MenuItemData> data = new ArrayList<>();
         try {
-            List<Decorator> derp = sData.getStuff().get(Class.forName("Burger"));
+            List<Decorator> derp = sData.getStuff().get(Class.forName("com.ood.restaurant.Data.Burger"));
 
             for (Decorator d : derp) {
                 MenuItemData tempData = new MenuItemData();
-                tempData.itemDescription = d.getDescription();
-                tempData.itemName = d.getDescription();
-                tempData.itemPrice = d.cost();
+                tempData.itemName = (String) d.getClass().getMethod("getName", (Class[]) null).invoke(d, (Object[]) null);
+                tempData.itemDescription = tempData.itemName;
+                tempData.itemPrice = (Double) d.getClass().getMethod("getCost", (Class[]) null).invoke(d, (Object[]) null);
+//                tempData.itemDescription = d.getDescription();
+//                tempData.itemName = d.getDescription();
+//                tempData.itemPrice = d.cost();
                 data.add(tempData);
             }
 
@@ -86,28 +92,12 @@ public class CustomizeOrderFragment extends Fragment {
         }catch (Exception e)
         {
             // Exception...
+            e.printStackTrace();
         }
 
         return data;
     }
 
-
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnListFragmentInteractionListener) {
-//            mListener = (OnListFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnListFragmentInteractionListener");
-//        }
-//    }
-//
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//        mListener = null;
-//    }
 
     /**
      * This interface must be implemented by activities that contain this

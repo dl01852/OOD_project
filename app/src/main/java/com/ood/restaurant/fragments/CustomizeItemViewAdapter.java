@@ -25,14 +25,16 @@ public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
     List<MenuItemData> decorators = Collections.emptyList();
     public CustomizeItemViewAdapter(Context context, List<MenuItemData> hackyData)
     {
+
         inflater = LayoutInflater.from(context);
         decorators = hackyData;
     }
+
+    @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
         View view = inflater.inflate(R.layout.fragment_customizeorder,parent,false);
-        MyHolder holder = new MyHolder(view);
-        return holder;
+        return new MyHolder(view);
     }
 
     @Override

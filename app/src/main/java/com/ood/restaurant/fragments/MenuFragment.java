@@ -50,7 +50,7 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
             for (Class food : menu) {
                 MenuItemData tempData = new MenuItemData();
 
-//                Object getDescription = food.getMethod("getDescription", null).invoke(null, null);
+//                Object getDescription = food.getMethod("getDescription", null).invoke(null, null);df
                 Method[] methods = food.getMethods();
                 double cost = (Double) food.getMethod("cost", (Class[]) null).invoke(food.newInstance(), (Object[]) null);
                 String name = food.getMethod("getDescription", (Class[]) null).invoke(food.newInstance(), (Object[]) null).toString();
@@ -74,12 +74,21 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
 
     @Override
     public void onCustomizeClicked() {
-        getActivity()
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_layout, new CustomizeOrderFragment())
-                .addToBackStack("CustomizeOrderFragment")
-                .commit();
+//        getActivity()
+//                .getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.fragment_layout, new CustomizeOrderFragment())
+//                .addToBackStack("CustomizeOrderFragment")
+//                .commit();
+
+        Bundle args = new Bundle();
+//        args.putInt("room_number", room_number);
+//        args.putString("date_from", date_from);
+//        args.putString("date_to", date_to);
+        args.putString("title", "test");
+        CustomizeOrderFragment dialog = new CustomizeOrderFragment();
+        dialog.setArguments(args);
+        dialog.show(getActivity().getSupportFragmentManager(), "Dialog");
     }
 
     @Override
