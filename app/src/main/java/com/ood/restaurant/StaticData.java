@@ -30,6 +30,7 @@ public class StaticData {
             tableList.add(true);
         }
         populateMenu();
+        addStuff();
     }
 
 //    public void addMenuItem(Food item)
@@ -79,7 +80,6 @@ public class StaticData {
 
     public HashMap<Class,List<Decorator>> getStuff()
     {
-        addStuff();
         return ItemsToDecorators;
     }
 

@@ -109,12 +109,21 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
 
     @Override
     public void onCustomizeClicked() {
-        getActivity()
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_layout, new CustomizeOrderFragment())
-                .addToBackStack("CustomizeOrderFragment")
-                .commit();
+//        getActivity()
+//                .getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.fragment_layout, new CustomizeOrderFragment())
+//                .addToBackStack("CustomizeOrderFragment")
+//                .commit();
+
+        Bundle args = new Bundle();
+//        args.putInt("room_number", room_number);
+//        args.putString("date_from", date_from);
+//        args.putString("date_to", date_to);
+        args.putString("title", "test");
+        CustomizeOrderFragment dialog = new CustomizeOrderFragment();
+        dialog.setArguments(args);
+        dialog.show(getActivity().getSupportFragmentManager(), "Dialog");
     }
 
     @Override
