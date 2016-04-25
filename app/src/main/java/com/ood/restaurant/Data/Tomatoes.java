@@ -5,7 +5,7 @@ package com.ood.restaurant.Data;
 public class Tomatoes extends Decorator
 {
     Food burger;
-    String tomatoe = "Tomatoe";
+    String name = "Tomatoe";
     double cost = .25;
 
     public Tomatoes(Food burgerToOrder)
@@ -23,6 +23,16 @@ public class Tomatoes extends Decorator
         // soo for this particular class, the description you'd add is  ' with lettuce'
         // then return that(don't return null).
     }
+
+    public String getName()
+    {
+        return name;
+    }
+    public double getCost()
+    {
+        return cost;
+    }
+
 
     @Override
     public double cost()

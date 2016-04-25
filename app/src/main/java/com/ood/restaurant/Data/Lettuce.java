@@ -29,6 +29,15 @@ public class Lettuce extends Decorator
         // then return that(don't return null).
     }
 
+    public String getName()
+    {
+        return name;
+    }
+    public double getCost()
+    {
+        return cost;
+    }
+
     @Override
     public double cost()
     {
