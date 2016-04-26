@@ -6,7 +6,7 @@ package com.ood.restaurant.Data;
 public class TexasToast extends Decorator
 {
     Food ribs;
-    String name = "Texas Toast";
+    String name = "TexasToast";
     double cost = 0;
     String decoratorDescription = "a piece of delicious texas toast";
 

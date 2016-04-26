@@ -6,7 +6,7 @@ package com.ood.restaurant.Data;
 public class FriedOkra extends Decorator
 {
     Food friedChicken;
-    String name = "Fried Okra";
+    String name = "FriedOkra";
     double cost = 0;
     String decoratorDescription = "breaded okra and fried";
 

@@ -7,7 +7,7 @@ public class Bacon extends Decorator
     Food burger;
     String name = "Bacon";
     double cost = .50;
-    String decoratorDescription = "applewood smoked bacon";
+    String decoratorDescription = "apple wood smoked bacon";
 
     public Bacon(Food burgerToOrder)
     {

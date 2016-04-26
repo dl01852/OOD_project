@@ -6,7 +6,7 @@ package com.ood.restaurant.Data;
 public class CollardGreens
 {
     Food friedChicken;
-    String name = "Collard greens";
+    String name = "CollardGreens";
     double cost = 0;
     String decoratorDescription = "Sauteed collard greens";
 
