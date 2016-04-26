@@ -9,8 +9,7 @@ import com.ood.restaurant.TableDialog;
  */
 public class ViewOrdersCommand {
     /**
-     * Invalidate all views in the GridView and reload the adapter. This will change the color
-     * of a table when it has been seating or made available.
+     * View the table's orders
      */
     public void execute(TableDialog dialog) {
         // Close the dialog
