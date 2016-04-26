@@ -9,7 +9,7 @@ import com.ood.restaurant.fragments.TableFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    orderDatabase myDB;
+    public static  orderDatabase myDB;
     public static Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

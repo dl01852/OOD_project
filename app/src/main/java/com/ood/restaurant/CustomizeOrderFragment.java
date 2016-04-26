@@ -39,7 +39,7 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
     String itemName;
     private CustomizeItemViewAdapter decoratorAdapter;
     StaticData sData = StaticData.i();
-    orderDatabase myDB = new orderDatabase(getContext()); // getContext does what?
+    orderDatabase myDB = MainActivity.myDB;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
