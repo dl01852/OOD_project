@@ -104,41 +104,41 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
 
     @Override
     public void onClick(View v) {
+        try {
+            Map<String, Boolean> toppings = new HashMap<>();
 
-        Map<String, Boolean> toppings = new HashMap<>();
+            for (int i = 0; i < recyclerView.getChildCount(); i++) {
+                CardView card = (CardView) ((LinearLayout) recyclerView.getChildAt(i)).getChildAt(0);
+                RelativeLayout layout = (RelativeLayout) card.getChildAt(0);
+                CheckBox check = (CheckBox) layout.getChildAt(2);
+                TextView topping = (TextView) layout.getChildAt(0);
+                toppings.put(topping.getText().toString(), check.isChecked());
+            }
 
-        for (int i = 0; i < recyclerView.getChildCount(); i++) {
-            CardView card = (CardView) ((LinearLayout) recyclerView.getChildAt(i)).getChildAt(0);
-            RelativeLayout layout = (RelativeLayout) card.getChildAt(0);
-            CheckBox check = (CheckBox) layout.getChildAt(2);
-            TextView topping = (TextView) layout.getChildAt(0);
-            toppings.put(topping.getText().toString(),check.isChecked());
-        }
+            // Create a new instance of the menu item (type Food)
+            Food food = (Food) Class.forName("com.ood.restaurant.Data." + itemName).newInstance();
 
-        if(itemName.equals("Burger"))
-        {
-            Food burger = new Burger();
-            for(Map.Entry<String,Boolean> entry : toppings.entrySet())
-            {
+            // Loop through toppings
+            for (Map.Entry<String, Boolean> entry : toppings.entrySet()) {
                 String topping = entry.getKey();
                 Boolean add = entry.getValue();
 
-                if(add)
-                {
-                    try
-                    {
-                        Class<?> decorator = Class.forName("com.ood.restaurant.Data."+topping);
-                        Constructor<?> ctor = decorator.getConstructor(Food.class);
-                        burger = (Food) ctor.newInstance(new Food[]{burger});
-                    }catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | java.lang.InstantiationException e)
-                    {
-                        // Error
-                        e.printStackTrace();
-                    }
+                // If checkbox is selected
+                if (add) {
+                    // Decorate the menu item
+                    food = (Food) Class.forName("com.ood.restaurant.Data." + topping)
+                            .getConstructor(Food.class).newInstance(new Food[]{food});
                 }
             }
-            String title = burger.getDescription();
-            Toast.makeText(getContext(),title,Toast.LENGTH_LONG).show();
+
+            // Get the description
+            String title = food.getDescription();
+
+            // TODO: Add to db
+            Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
+        } catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException |
+                NoSuchMethodException | java.lang.InstantiationException e) {
+            e.printStackTrace();
         }
     }
 }
