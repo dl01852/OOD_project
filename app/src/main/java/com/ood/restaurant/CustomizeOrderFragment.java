@@ -12,11 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.*;
 
 import com.ood.restaurant.Data.Burger;
 import com.ood.restaurant.Data.Decorator;
@@ -111,7 +107,7 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
             CardView card = (CardView) ((LinearLayout) recyclerView.getChildAt(i)).getChildAt(0);
             RelativeLayout layout = (RelativeLayout) card.getChildAt(0);
             CheckBox check = (CheckBox) layout.getChildAt(2);
-            Log.w("CheckBox", String.valueOf(check.isChecked()));
+            TextView topping = (TextView) layout.getChildAt(0);
         }
     }
 }
