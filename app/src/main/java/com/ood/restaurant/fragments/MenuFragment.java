@@ -30,6 +30,7 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
 
     private RecyclerView recyclerView;
     private MenuItemViewAdapter menuAdapter;
+    public static CustomizeOrderFragment customizeOrderFragment;
     static StaticData staticData = StaticData.i(); // grab an instance of the data.
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -86,9 +87,9 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
 //        args.putString("date_to", date_to);
         args.putString("itemName",itemName);
         args.putString("title",itemName);
-        CustomizeOrderFragment dialog = new CustomizeOrderFragment();
-        dialog.setArguments(args);
-        dialog.show(getActivity().getSupportFragmentManager(), "Dialog");
+        customizeOrderFragment = new CustomizeOrderFragment();
+        customizeOrderFragment.setArguments(args);
+        customizeOrderFragment.show(getActivity().getSupportFragmentManager(), "Dialog");
     }
 
     @Override
