@@ -8,7 +8,8 @@ import com.ood.restaurant.StaticData;
  */
 public class MakeAvailableCommand implements TableReceiver {
     @Override
-    public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder, int table) {
+    public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder,
+                        Button btnViewOrders, int table) {
         // Set the table as available
         StaticData.i().tables().set(table, true);
 
@@ -17,6 +18,7 @@ public class MakeAvailableCommand implements TableReceiver {
         toggleButtonCommand.execute(btnSeatTable);
         toggleButtonCommand.execute(btnMakeAvailable);
         toggleButtonCommand.execute(btnAddOrder);
+        toggleButtonCommand.execute(btnViewOrders);
 
         // Reload the tables
         ReloadTablesCommand reloadTablesCommand = new ReloadTablesCommand();
