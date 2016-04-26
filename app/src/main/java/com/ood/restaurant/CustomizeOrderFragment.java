@@ -117,7 +117,7 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
 
         if(itemName.equals("Burger"))
         {
-            Burger burger = new Burger();
+            Food burger = new Burger();
             for(Map.Entry<String,Boolean> entry : toppings.entrySet())
             {
                 String topping = entry.getKey();
@@ -127,12 +127,13 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
                 {
                     try
                     {
-                        Class<?> decorator = Class.forName("com.ood.restaurant.Data"+topping);
-                        Constructor<?> ctor = decorator.getConstructor(String.class);
-                        burger= (Burger)ctor.newInstance(new Burger[]{burger});
+                        Class<?> decorator = Class.forName("com.ood.restaurant.Data."+topping);
+                        Constructor<?> ctor = decorator.getConstructor(Food.class);
+                        burger = (Food) ctor.newInstance(new Food[]{burger});
                     }catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | java.lang.InstantiationException e)
                     {
                         // Error
+                        e.printStackTrace();
                     }
                 }
             }
