@@ -42,7 +42,8 @@ public class MenuItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
         final MenuItemData currentItem = MenuItems.get(position);
         holder.setItem_Name(currentItem.itemName);
-        holder.setItem_Price(Double.toString(currentItem.itemPrice)); // price might want to be represented as string
+        holder.setItem_Price(MainActivity.context
+                .getString(R.string.item_price, currentItem.itemPrice));
         holder.setItem_description(currentItem.itemDescription);
 
         Button btn_customize = (Button) holder.mView.findViewById(R.id.btnCustomize);
