@@ -6,7 +6,7 @@ package com.ood.restaurant.Data;
 public class BakedBeans extends Decorator
 {
     Food ribs;
-    String name = "Baked Beans";
+    String name = "BakedBeans";
     double cost = 0;
     String decoratorDescription = "oven baked beans";
 

@@ -6,7 +6,7 @@ package com.ood.restaurant.Data;
 public class MacnCheese extends Decorator
 {
     Food friedChicken;
-    String name = "Mac n Cheese";
+    String name = "MacnCheese";
     double cost = 0;
     String decoratorDescription = "mac n cheese";
 
