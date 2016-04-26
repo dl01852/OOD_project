@@ -21,7 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Singleton pattern
+ * Singleton pattern to store table states
+ * @author Michael Palmer
  */
 public class StaticData {
 
@@ -31,7 +32,7 @@ public class StaticData {
     public HashMap<Class, List<Decorator>> ItemsToDecorators = new HashMap<>();
 
     /**
-     * Private constructor
+     * Private constructor - initialize 15 available tables
      */
     private StaticData() {
         for (int i = 0; i < 15; i++) {
@@ -47,7 +48,7 @@ public class StaticData {
 //    }
 
     /**
-     * Get the singleton instance
+     * Get the singleton instance, creating a new instance if needed
      * @return Singleton instance
      */
     public static synchronized StaticData i() {

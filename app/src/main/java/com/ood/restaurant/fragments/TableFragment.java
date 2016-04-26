@@ -13,28 +13,45 @@ import com.ood.restaurant.StaticData;
 import com.ood.restaurant.TableDialog;
 import com.ood.restaurant.TableGridViewAdapter;
 
+/**
+ * Table Fragment
+ * @author Michael Palmer
+ */
 public class TableFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     public static GridView tableGrid;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
+        // Inflate the fragment
         View view = inflater.inflate(R.layout.fragment_table_list, container, false);
+
+        // Initialize the GridView variable
         tableGrid = (GridView) view;
 
         // Set the adapter
         tableGrid.setAdapter(new TableGridViewAdapter(getActivity(),
                 R.layout.fragment_table, StaticData.i().tables()));
+
+        // Assign the click listener
         tableGrid.setOnItemClickListener(this);
         return view;
     }
 
+    /**
+     * Open the table dialog when a table is clicked
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // Create the dialog
+        TableDialog tableDialog = new TableDialog();
+
+        // Set arguments
         Bundle args = new Bundle();
         args.putInt("table", position);
-        TableDialog tableDialog = new TableDialog();
         tableDialog.setArguments(args);
+
+        // Show the dialog
         tableDialog.show(getActivity().getSupportFragmentManager(), "TableDialog");
     }
 }
