@@ -140,6 +140,9 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
 
             // TODO: Add to db
             Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
+            Order order = new Order();
+            order.setOrderDescription(food.getDescription());
+
         } catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException |
                 NoSuchMethodException | java.lang.InstantiationException e) {
             e.printStackTrace();
