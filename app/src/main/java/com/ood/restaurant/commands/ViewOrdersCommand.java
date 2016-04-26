@@ -18,7 +18,7 @@ public class ViewOrdersCommand extends AppCompatActivity {
      * of a table when it has been seating or made available.
      */;
 
-    orderDatabase orderDatabase = new orderDatabase(this);
+    orderDatabase orderDatabase = MainActivity.myDB;
 
     public void execute(TableDialog dialog, int tableID) {
 
