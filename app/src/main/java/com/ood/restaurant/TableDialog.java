@@ -16,7 +16,7 @@ import com.ood.restaurant.commands.*;
 public class TableDialog extends DialogFragment implements View.OnClickListener {
 
     private int table;
-    private Button btnSeatTable, btnMakeAvailable, btnAddOrder;
+    private Button btnSeatTable, btnMakeAvailable, btnAddOrder, btnViewOrders;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,9 +32,11 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         btnSeatTable = (Button) rootView.findViewById(R.id.btn_seat_table);
         btnMakeAvailable = (Button) rootView.findViewById(R.id.btn_make_available);
         btnAddOrder = (Button) rootView.findViewById(R.id.btn_add_order);
+        btnViewOrders = (Button) rootView.findViewById(R.id.btn_view_orders);
         btnSeatTable.setOnClickListener(this);
         btnMakeAvailable.setOnClickListener(this);
         btnAddOrder.setOnClickListener(this);
+        btnViewOrders.setOnClickListener(this);
 
         // Set the initial state of the buttons based on the table status
         ToggleButtonCommand toggleButtonCommand = new ToggleButtonCommand();
@@ -43,6 +45,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         } else {
             toggleButtonCommand.execute(btnMakeAvailable);
             toggleButtonCommand.execute(btnAddOrder);
+            toggleButtonCommand.execute(btnViewOrders);
         }
 
         return rootView;
@@ -60,17 +63,23 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         switch( v.getId() ) {
             case R.id.btn_seat_table:
                 // Seat Table button was clicked - execute the SeatTableCommand
-                seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
+                seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder,
+                        btnViewOrders, table);
                 break;
 
             case R.id.btn_make_available:
                 // Make Available button was clicked - execute the MakeAvailableCommand
-                makeAvailableCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder, table);
+                makeAvailableCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder,
+                        btnViewOrders, table);
                 break;
 
             case R.id.btn_add_order:
                 // Add Order button was clicked - execute the AddOrderCommand
                 addOrderCommand.execute(this);
+                break;
+
+            case R.id.btn_view_orders:
+                // TODO: Implement this
                 break;
         }
     }
