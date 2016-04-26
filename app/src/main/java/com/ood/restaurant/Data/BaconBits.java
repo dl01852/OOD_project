@@ -5,9 +5,9 @@ package com.ood.restaurant.Data;
 public class BaconBits extends PizzaDecorator
 {
     Food pizza;
-    String name = "Bacon Bits";
+    String name = "BaconBits";
     double cost = .25;
-    String decoratorDescription = "cooked bacon";
+    String decoratorDescription = "diced bacon bits";
 
     public BaconBits(Food pizzaToOrder)
     {
