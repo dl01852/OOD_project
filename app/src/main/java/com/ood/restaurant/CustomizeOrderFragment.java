@@ -20,6 +20,7 @@ import com.ood.restaurant.Data.DummyContent;
 import com.ood.restaurant.Data.DummyContent.DummyItem;
 import com.ood.restaurant.Data.Food;
 import com.ood.restaurant.fragments.CustomizeItemViewAdapter;
+import com.ood.restaurant.fragments.MenuFragment;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -133,6 +134,9 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
 
             // Get the description
             String title = food.getDescription();
+
+            // Close the dialog
+            MenuFragment.customizeOrderFragment.dismiss();
 
             // TODO: Add to db
             Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
