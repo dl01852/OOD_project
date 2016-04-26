@@ -60,6 +60,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         SeatTableCommand seatCommand = new SeatTableCommand();
         MakeAvailableCommand makeAvailableCommand = new MakeAvailableCommand();
         AddOrderCommand addOrderCommand = new AddOrderCommand();
+        ViewOrdersCommand viewOrdersCommand = new ViewOrdersCommand();
         switch( v.getId() ) {
             case R.id.btn_seat_table:
                 // Seat Table button was clicked - execute the SeatTableCommand
@@ -79,7 +80,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
                 break;
 
             case R.id.btn_view_orders:
-                // TODO: Implement this
+                viewOrdersCommand.execute(this,table);
                 break;
         }
     }

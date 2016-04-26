@@ -10,7 +10,6 @@ import com.ood.restaurant.fragments.TableFragment;
 public class MainActivity extends AppCompatActivity {
 
     public static Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

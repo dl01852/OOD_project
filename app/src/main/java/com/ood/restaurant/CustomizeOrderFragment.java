@@ -39,6 +39,7 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
     String itemName;
     private CustomizeItemViewAdapter decoratorAdapter;
     StaticData sData = StaticData.i();
+    orderDatabase myDB = new orderDatabase(getContext()); // getContext does what?
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -142,7 +143,7 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
             Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
             Order order = new Order();
             order.setOrderDescription(food.getDescription());
-
+            myDB.insertOrder(order);
         } catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException |
                 NoSuchMethodException | java.lang.InstantiationException e) {
             e.printStackTrace();
