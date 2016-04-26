@@ -5,8 +5,9 @@ package com.ood.restaurant.Data;
 public class Tomatoes extends Decorator
 {
     Food burger;
-    String name = "Tomatoe";
-    double cost = .25;
+    String name = "Tomato";
+    double cost = 0;
+    String decoratorDescription = "red succulent tomato";
 
     public Tomatoes(Food burgerToOrder)
     {
@@ -33,6 +34,10 @@ public class Tomatoes extends Decorator
         return cost;
     }
 
+    public String getDecoratorDescription()
+    {
+        return decoratorDescription;
+    }
 
     @Override
     public double cost()

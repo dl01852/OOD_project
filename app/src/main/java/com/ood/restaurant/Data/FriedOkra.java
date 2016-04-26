@@ -1,25 +1,24 @@
 package com.ood.restaurant.Data;
+
 /**
- * Created by Nicholas on 4/16/2016.
+ * Created by Nicholas on 4/26/2016.
  */
-public class Mushrooms extends PizzaDecorator
+public class FriedOkra extends Decorator
 {
-    Food pizza;
-    String name = "Mushrooms";
+    Food friedChicken;
+    String name = "Fried Okra";
     double cost = 0;
-    String decoratorDescription = "fresh mushrooms";
+    String decoratorDescription = "breaded okra and fried";
 
-    public Mushrooms(Food pizzaToOrder)
+    public FriedOkra(Food chickenToOrder)
     {
-        this.pizza = pizzaToOrder;
+        this.friedChicken = chickenToOrder;
     }
-
-    public Mushrooms(){}
 
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with mushrooms ";
+        return friedChicken.getDescription() + "with fried okra ";
     }
 
     public String getName()
@@ -40,6 +39,6 @@ public class Mushrooms extends PizzaDecorator
     @Override
     public double cost()
     {
-        return pizza.cost() + cost;
+        return friedChicken.cost();
     }
 }
