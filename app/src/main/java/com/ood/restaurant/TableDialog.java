@@ -1,6 +1,5 @@
 package com.ood.restaurant;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -38,27 +37,15 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
         btnAddOrder.setOnClickListener(this);
 
         // Set the initial state of the buttons based on the table status
+        ToggleButtonCommand toggleButtonCommand = new ToggleButtonCommand();
         if (!StaticData.i().tables().get(table)) {
-            toggleButton(btnSeatTable);
+            toggleButtonCommand.execute(btnSeatTable);
         } else {
-            toggleButton(btnMakeAvailable);
-            toggleButton(btnAddOrder);
+            toggleButtonCommand.execute(btnMakeAvailable);
+            toggleButtonCommand.execute(btnAddOrder);
         }
 
         return rootView;
-    }
-
-    /**
-     * Toggle a button's state (enabled/disabled)
-     * @param button Button to toggle
-     */
-    private void toggleButton(Button button) {
-        if (button.isEnabled()) {
-            button.setTextColor(Color.GRAY);
-        } else {
-            button.setTextColor(Color.WHITE);
-        }
-        button.setEnabled(!button.isEnabled());
     }
 
     /**
