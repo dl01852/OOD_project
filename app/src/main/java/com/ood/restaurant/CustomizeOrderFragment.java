@@ -21,9 +21,9 @@ import com.ood.restaurant.Data.DummyContent.DummyItem;
 import com.ood.restaurant.Data.Food;
 import com.ood.restaurant.fragments.CustomizeItemViewAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 
 
 public class CustomizeOrderFragment extends DialogFragment implements Listeners.OnCustomizeAddListener, View.OnClickListener {
@@ -35,6 +35,7 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
 
 
     private RecyclerView recyclerView;
+    String itemName;
     private CustomizeItemViewAdapter decoratorAdapter;
     StaticData sData = StaticData.i();
 
@@ -59,7 +60,7 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         super.getDialog().setTitle(getArguments().getString("title"));
-        String itemName = getArguments().getString("itemName");
+        itemName = getArguments().getString("itemName"); // Food Name
         View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
         decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem(itemName),this);
@@ -103,11 +104,40 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
 
     @Override
     public void onClick(View v) {
+
+        Map<String, Boolean> toppings = new HashMap<>();
+
         for (int i = 0; i < recyclerView.getChildCount(); i++) {
             CardView card = (CardView) ((LinearLayout) recyclerView.getChildAt(i)).getChildAt(0);
             RelativeLayout layout = (RelativeLayout) card.getChildAt(0);
             CheckBox check = (CheckBox) layout.getChildAt(2);
             TextView topping = (TextView) layout.getChildAt(0);
+            toppings.put(topping.getText().toString(),check.isChecked());
+        }
+
+        if(itemName.equals("Burger"))
+        {
+            Burger burger = new Burger();
+            for(Map.Entry<String,Boolean> entry : toppings.entrySet())
+            {
+                String topping = entry.getKey();
+                Boolean add = entry.getValue();
+
+                if(add)
+                {
+                    try
+                    {
+                        Class<?> decorator = Class.forName("com.ood.restaurant.Data"+topping);
+                        Constructor<?> ctor = decorator.getConstructor(String.class);
+                        burger= (Burger)ctor.newInstance(new Burger[]{burger});
+                    }catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | java.lang.InstantiationException e)
+                    {
+                        // Error
+                    }
+                }
+            }
+            String title = burger.getDescription();
+            Toast.makeText(getContext(),title,Toast.LENGTH_LONG).show();
         }
     }
 }
