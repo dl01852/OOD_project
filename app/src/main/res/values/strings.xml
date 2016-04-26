@@ -2,12 +2,8 @@
     <string name="app_name">Restaurant</string>
 
     <!-- Navigation -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_tables">Tables</string>
     <string name="nav_menu">Menu</string>
-
-    <string name="action_settings">Settings</string>
 
     <!-- Tables -->
     <string name="tableN">Table %d</string>
