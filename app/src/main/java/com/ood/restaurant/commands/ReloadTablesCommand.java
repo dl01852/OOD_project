@@ -13,7 +13,7 @@ public class ReloadTablesCommand {
      * Invalidate all views in the GridView and reload the adapter. This will change the color
      * of a table when it has been seating or made available.
      */
-    public static void execute() {
+    public void execute() {
         TableFragment.tableGrid.invalidateViews();
         TableFragment.tableGrid.setAdapter(TableFragment.tableGrid.getAdapter());
     }

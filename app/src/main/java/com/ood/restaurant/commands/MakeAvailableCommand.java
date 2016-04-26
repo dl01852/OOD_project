@@ -15,7 +15,8 @@ public class MakeAvailableCommand implements TableReceiver {
         toggleButton(btnSeatTable);
         toggleButton(btnMakeAvailable);
         toggleButton(btnAddOrder);
-        ReloadTablesCommand.execute();
+        ReloadTablesCommand reloadTablesCommand = new ReloadTablesCommand();
+        reloadTablesCommand.execute();
     }
 
     private void toggleButton(Button button) {
