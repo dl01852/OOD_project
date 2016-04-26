@@ -5,20 +5,36 @@ package com.ood.restaurant.Data;
 public class Sausage extends PizzaDecorator
 {
     Food pizza;
+    String name = "Sausage";
+    double cost = .25;
+    String decoratorDescription = "cooked sausage";
 
     public Sausage(Food pizzaToOrder)
     {
         this.pizza = pizzaToOrder;
     }
+
+    public Sausage(){}
+
     @Override
     public String getDescription()
     {
         return pizza.getDescription() + "with Sausage ";
     }
 
+    public String getName()
+    {
+        return name;
+    }
+
+    public double getCost()
+    {
+        return cost;
+    }
+
     @Override
     public double cost()
     {
-        return pizza.cost() + 0;
+        return pizza.cost() + cost;
     }
 }
