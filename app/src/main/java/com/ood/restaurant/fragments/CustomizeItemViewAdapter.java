@@ -51,18 +51,18 @@ public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.setDecorator_price(
                 MainActivity.context.getString(R.string.item_price, currentDecorator.itemPrice));
         holder.setDecorator_description(currentDecorator.itemDescription);
-        Button btn_add = (Button) holder.getView().findViewById(R.id.btnAdd);
+//        Button btn_add = (Button) holder.getView().findViewById(R.id.btnAdd);
 
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(mListener != null)
-                {
-                    mListener.onCustomizeClicked(currentDecorator.itemName);
-                }
-            }
-        });
+//        btn_add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                if(mListener != null)
+//                {
+////                    mListener.onCustomizeClicked(currentDecorator.itemName);
+//                }
+//            }
+//        });
     }
 
     @Override

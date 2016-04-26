@@ -4,12 +4,18 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.ood.restaurant.Data.Burger;
@@ -24,7 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class CustomizeOrderFragment extends DialogFragment implements Listeners.OnCustomizeAddListener {
+public class CustomizeOrderFragment extends DialogFragment implements Listeners.OnCustomizeAddListener, View.OnClickListener {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -62,6 +68,8 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
         recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
         decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem(itemName),this);
         recyclerView.setAdapter(decoratorAdapter);
+        Button button = (Button) layout.findViewById(R.id.btn_save_order);
+        button.setOnClickListener(this);
         return layout;
     }
 
@@ -95,5 +103,15 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
     public void onCustomizeClicked(String decoratorName) {
 
         Toast.makeText(getContext(),decoratorName,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        for (int i = 0; i < recyclerView.getChildCount(); i++) {
+            CardView card = (CardView) ((LinearLayout) recyclerView.getChildAt(i)).getChildAt(0);
+            RelativeLayout layout = (RelativeLayout) card.getChildAt(0);
+            CheckBox check = (CheckBox) layout.getChildAt(2);
+            Log.w("CheckBox", String.valueOf(check.isChecked()));
+        }
     }
 }
