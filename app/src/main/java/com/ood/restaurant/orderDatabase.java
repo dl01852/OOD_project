@@ -16,7 +16,7 @@ public class orderDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Restaurant.db";
     public static final String TABLE_NAME = "orders";
     public static final String ORDER_ID = "id";
-    public static final String ORDER = "order";
+    public static final String ORDER = "description";
 
     private int id;
     private String orderDescription;
