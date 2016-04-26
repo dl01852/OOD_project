@@ -54,7 +54,7 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
                 double cost = (Double) food.getMethod("cost", (Class[]) null).invoke(food.newInstance(), (Object[]) null);
                 String name = food.getMethod("getDescription", (Class[]) null).invoke(food.newInstance(), (Object[]) null).toString();
                 tempData.itemDescription = name;
-                tempData.itemName = name;
+                tempData.itemName = name.trim();
                 tempData.itemPrice = cost;
 
 

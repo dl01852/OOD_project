@@ -5,7 +5,7 @@ package com.ood.restaurant.Data;
 public class Tomatoes extends Decorator
 {
     Food burger;
-    String name = "Tomato";
+    String name = "Tomatoes";
     double cost = .25;
 
     public Tomatoes(Food burgerToOrder)
