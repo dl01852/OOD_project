@@ -12,3 +12,4 @@
         app:layoutManager="LinearLayoutManager"
         tools:context="com.ood.restaurant.CustomizeOrderFragment"
         tools:listitem="@layout/fragment_customizeorder"/>
+

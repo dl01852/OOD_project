@@ -8,8 +8,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.ood.restaurant.Data.Burger;
@@ -24,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class CustomizeOrderFragment extends DialogFragment {
+public class CustomizeOrderFragment extends DialogFragment implements Listeners.OnCustomizeAddListener {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -60,35 +62,45 @@ public class CustomizeOrderFragment extends DialogFragment {
         String itemName = getArguments().getString("itemName");
         View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
-        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem(itemName));
+        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),itemName,this);
         recyclerView.setAdapter(decoratorAdapter);
         return layout;
     }
 
-    public List<MenuItemData> converToMenuItem(String itemName)
-    {
-        List<MenuItemData> data = new ArrayList<>();
-        String className = "com.ood.restaurant.Data."+itemName;
-        try {
-            List<Decorator> getClass = sData.getStuff().get(Class.forName(className.trim()));
+//    public HashMap<Food, List<MenuItemData>> converToMenuItem(String itemName)
+//    {
+//        List<MenuItemData> data = new ArrayList<>();
+//        HashMap<Food,List<MenuItemData>> foodListHashMap = new HashMap<>();
+//        Food food = null;
+//
+//        String className = "com.ood.restaurant.Data."+itemName;
+//
+//        try {
+//            List<Decorator> getClass = sData.getStuff().get(Class.forName(className.trim()));
+//             food  = (Food)Class.forName(className.trim()).newInstance();
+//            for (Decorator d : getClass) {
+//                MenuItemData tempData = new MenuItemData();
+//                tempData.itemName = (String) d.getClass().getMethod("getName", (Class[]) null).invoke(d, (Object[]) null);
+//                tempData.itemDescription = tempData.itemName;
+//                tempData.itemPrice = (Double) d.getClass().getMethod("getCost", (Class[]) null).invoke(d, (Object[]) null);
+//                data.add(tempData);
+//            }
+//
+//
+//        }catch (Exception e)
+//        {
+//            // Exception...
+//            e.printStackTrace();
+//        }
+//        foodListHashMap.put(food,data);
+//        //return data;
+//        return foodListHashMap;
+//    }
 
-            for (Decorator d : getClass) {
-                MenuItemData tempData = new MenuItemData();
-                tempData.itemName = (String) d.getClass().getMethod("getName", (Class[]) null).invoke(d, (Object[]) null);
-                tempData.itemDescription = tempData.itemName;
-                tempData.itemPrice = (Double) d.getClass().getMethod("getCost", (Class[]) null).invoke(d, (Object[]) null);
-                data.add(tempData);
-            }
 
+    @Override
+    public void onCustomizeAddClicked(String decoratorName) {
 
-        }catch (Exception e)
-        {
-            // Exception...
-            e.printStackTrace();
-        }
-
-        return data;
+        Toast.makeText(getContext(),decoratorName,Toast.LENGTH_SHORT).show();
     }
-    
-
 }
