@@ -3,7 +3,8 @@ package com.ood.restaurant;
 import java.util.ArrayList;
 
 /**
- * Singleton pattern
+ * Singleton pattern to store table states
+ * @author Michael Palmer
  */
 public class StaticData {
 
@@ -11,7 +12,7 @@ public class StaticData {
     private ArrayList<Boolean> tableList = new ArrayList<>();
 
     /**
-     * Private constructor
+     * Private constructor - initialize 15 available tables
      */
     private StaticData() {
         for (int i = 0; i < 15; i++) {
@@ -20,7 +21,7 @@ public class StaticData {
     }
 
     /**
-     * Get the singleton instance
+     * Get the singleton instance, creating a new instance if needed
      * @return Singleton instance
      */
     public static synchronized StaticData i() {
