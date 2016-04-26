@@ -20,7 +20,7 @@ public class Cheese extends Decorator
     public String getDescription()
     {
 
-        return burger.getDescription() + "with cheese ";
+        return burger.getDescription() + " with cheese ";
         // get the description from the burger object and then add on the description from this class
         // soo for this particular class, the description you'd add is  ' with lettuce'
         // then return that(don't return null).
