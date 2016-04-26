@@ -5,4 +5,9 @@ public class Listeners {
         void onCustomizeClicked(String itemName); // variable string itemName?
         void onOrderClicked();
     }
+
+    public interface OnCustomizeAddListener
+    {
+        void onCustomizeClicked(String decoratorName);
+    }
 }

@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class CustomizeOrderFragment extends DialogFragment {
+public class CustomizeOrderFragment extends DialogFragment implements Listeners.OnCustomizeAddListener {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -60,7 +60,7 @@ public class CustomizeOrderFragment extends DialogFragment {
         String itemName = getArguments().getString("itemName");
         View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
-        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem(itemName));
+        decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),converToMenuItem(itemName),this);
         recyclerView.setAdapter(decoratorAdapter);
         return layout;
     }
@@ -89,6 +89,11 @@ public class CustomizeOrderFragment extends DialogFragment {
 
         return data;
     }
-    
 
+
+    @Override
+    public void onCustomizeClicked(String decoratorName) {
+
+        Toast.makeText(getContext(),decoratorName,Toast.LENGTH_LONG).show();
+    }
 }
