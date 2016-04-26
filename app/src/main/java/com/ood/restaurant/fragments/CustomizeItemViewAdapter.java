@@ -1,6 +1,7 @@
 package com.ood.restaurant.fragments;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.ood.restaurant.Data.Decorator;
 import com.ood.restaurant.Data.Food;
+import com.ood.restaurant.MainActivity;
 import com.ood.restaurant.MenuItemData;
 import com.ood.restaurant.R;
 
@@ -42,7 +44,8 @@ public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
     {
         MenuItemData currentDecorator = decorators.get(position);
         holder.setDecorator_Name(currentDecorator.itemName);
-        holder.setDecorator_price(Double.toString(currentDecorator.itemPrice));
+        holder.setDecorator_price(
+                MainActivity.context.getString(R.string.item_price, currentDecorator.itemPrice));
         holder.setDecorator_description(currentDecorator.itemDescription);
     }
 
