@@ -64,6 +64,7 @@ public class orderDatabase extends SQLiteOpenHelper {
 
         contentValues.put(ORDER,order.getOrderDescription());
         contentValues.put(TABLE_ID,TableID);
+        contentValues.put(ORDER_COST,order.getCost());
         db.insert(TABLE_NAME,null,contentValues);
         db.close();
 
