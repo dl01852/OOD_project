@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // Initialize database and clear it
         myDB = new orderDatabase(this);
         myDB.deleteAllOrders();
@@ -33,12 +34,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.fragment_layout, new TableFragment())
+                        .replace(R.id.fragment_layout,new TableFragment())
                         .commit();
             }
         });
