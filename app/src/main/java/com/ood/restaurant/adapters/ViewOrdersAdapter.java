@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.ood.restaurant.Order;
 import com.ood.restaurant.R;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,7 @@ public class ViewOrdersAdapter extends RecyclerView.Adapter<OrdersViewHolder> {
     @Override
     public void onBindViewHolder(OrdersViewHolder holder, int position) {
         holder.order_description.setText(orders.get(position).getOrderDescription());
+        holder.order_cost.setText(String.valueOf(orders.get(position).getCost()));
     }
 
     /**
@@ -69,6 +71,7 @@ public class ViewOrdersAdapter extends RecyclerView.Adapter<OrdersViewHolder> {
 class OrdersViewHolder extends RecyclerView.ViewHolder
 {
     public TextView order_description;
+    public TextView order_cost;
     public View mView;
 
     /**
@@ -79,5 +82,6 @@ class OrdersViewHolder extends RecyclerView.ViewHolder
         super(view);
         mView = view;
         order_description = (TextView) view.findViewById(R.id.order_description);
+        order_cost = (TextView) view.findViewById(R.id.order_cost);
     }
 }
