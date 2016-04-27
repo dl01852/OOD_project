@@ -20,7 +20,7 @@ public class CollardGreens extends Decorator
     public String getDescription()
     {
 
-        return friedChicken.getDescription() + " with collard greens ";
+        return friedChicken.getDescription() + " with collard greens";
     }
 
     public String getName()
@@ -41,10 +41,5 @@ public class CollardGreens extends Decorator
     public double cost()
     {
         return friedChicken.cost();
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Collard Greens Added...";
     }
 }

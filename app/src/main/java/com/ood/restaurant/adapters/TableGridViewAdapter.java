@@ -1,4 +1,4 @@
-package com.ood.restaurant;
+package com.ood.restaurant.adapters;
 
 import android.content.Context;
 import android.graphics.Color;

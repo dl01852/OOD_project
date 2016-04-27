@@ -11,7 +11,7 @@ import android.widget.GridView;
 import com.ood.restaurant.R;
 import com.ood.restaurant.StaticData;
 import com.ood.restaurant.TableDialog;
-import com.ood.restaurant.TableGridViewAdapter;
+import com.ood.restaurant.adapters.TableGridViewAdapter;
 
 /**
  * Table Fragment

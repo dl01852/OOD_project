@@ -1,10 +1,9 @@
-package com.ood.restaurant;
+package com.ood.restaurant.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,15 @@ import android.widget.*;
 
 import com.ood.restaurant.Data.Decorator;
 import com.ood.restaurant.Data.Food;
-import com.ood.restaurant.Data.Kitchen;
+import com.ood.restaurant.MainActivity;
+import com.ood.restaurant.MenuItemData;
+import com.ood.restaurant.Order;
+import com.ood.restaurant.R;
+import com.ood.restaurant.StaticData;
 import com.ood.restaurant.commands.AddOrderCommand;
-import com.ood.restaurant.fragments.CustomizeItemViewAdapter;
+import com.ood.restaurant.adapters.CustomizeItemViewAdapter;
 import com.ood.restaurant.fragments.MenuFragment;
+import com.ood.restaurant.orderDatabase;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -102,8 +106,6 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
 
             // Close the dialog and show a toast
             MenuFragment.customizeOrderFragment.dismiss();
-            Kitchen kitchen = new Kitchen();
-            Log.w("Kitchen", kitchen.getOrderMessage(food));
 
             Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
 

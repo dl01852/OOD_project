@@ -19,7 +19,7 @@ public class Mushrooms extends Decorator
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + " with mushrooms ";
+        return pizza.getDescription() + " with mushrooms";
     }
 
     public String getName()
@@ -41,10 +41,5 @@ public class Mushrooms extends Decorator
     public double cost()
     {
         return pizza.cost() + cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Mushrooms Added...";
     }
 }
