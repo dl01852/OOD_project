@@ -2,8 +2,12 @@ package com.ood.restaurant.fragments;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +38,25 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
         menuAdapter = new MenuItemViewAdapter(getActivity(), getMenuData(), this);
         recyclerView.setAdapter(menuAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_layout,new TableFragment())
+                        .commit();
+            }
+        });
+
 
         return layout;
     }
@@ -71,4 +94,5 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
         customizeOrderFragment.setArguments(args);
         customizeOrderFragment.show(getActivity().getSupportFragmentManager(), "Dialog");
     }
+
 }
