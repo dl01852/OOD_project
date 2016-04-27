@@ -20,7 +20,7 @@ public class CollardGreens extends Decorator
     public String getDescription()
     {
 
-        return friedChicken.getDescription() + "with collard greens ";
+        return friedChicken.getDescription() + " with collard greens ";
     }
 
     public String getName()

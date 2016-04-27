@@ -19,7 +19,7 @@ public class FriedOkra extends Decorator
     @Override
     public String getDescription()
     {
-        return friedChicken.getDescription() + "with fried okra ";
+        return friedChicken.getDescription() + " with fried okra ";
     }
 
     public String getName()

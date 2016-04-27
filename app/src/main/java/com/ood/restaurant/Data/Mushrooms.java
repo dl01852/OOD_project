@@ -19,7 +19,7 @@ public class Mushrooms extends Decorator
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with mushrooms ";
+        return pizza.getDescription() + " with mushrooms ";
     }
 
     public String getName()

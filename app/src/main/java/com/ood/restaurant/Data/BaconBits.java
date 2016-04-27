@@ -19,7 +19,7 @@ public class BaconBits extends Decorator
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with bacon bits  ";
+        return pizza.getDescription() + " with bacon bits  ";
     }
 
     public String getName()

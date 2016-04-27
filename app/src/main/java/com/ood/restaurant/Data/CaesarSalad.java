@@ -8,7 +8,7 @@ public class CaesarSalad extends Food
     private double cost;
     public CaesarSalad()
     {
-        FoodName = "Caesar Salad";
+        FoodName = "CaesarSalad";
     }
     @Override
     public double cost()

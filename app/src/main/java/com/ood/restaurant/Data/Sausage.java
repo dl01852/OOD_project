@@ -19,7 +19,7 @@ public class Sausage extends Decorator
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with Sausage ";
+        return pizza.getDescription() + " with Sausage ";
     }
 
     public String getName()

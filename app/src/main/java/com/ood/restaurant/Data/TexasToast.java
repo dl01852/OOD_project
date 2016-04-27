@@ -20,7 +20,7 @@ public class TexasToast extends Decorator
     @Override
     public String getDescription()
     {
-        return ribs.getDescription() + "with texas toast ";
+        return ribs.getDescription() + " with texas toast ";
     }
 
     public String getName()

@@ -9,7 +9,7 @@ public class BBQRibs extends Food
 
     public BBQRibs()
     {
-        FoodName = "Full rack of ribs";
+        FoodName = "BBQRibs";
     }
     @Override
     public double cost()

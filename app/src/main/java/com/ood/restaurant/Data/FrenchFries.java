@@ -21,7 +21,7 @@ public class FrenchFries extends Decorator
     public String getDescription()
     {
 
-        return burger.getDescription() + "and with a side of French Fries ";
+        return burger.getDescription() + " and with a side of French Fries ";
     }
 
     public String getName()

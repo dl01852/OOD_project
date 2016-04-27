@@ -20,7 +20,7 @@ public class BakedBeans extends Decorator
     @Override
     public String getDescription()
     {
-        return ribs.getDescription() + "with baked beans ";
+        return ribs.getDescription() + " with baked beans ";
     }
 
     public String getName()

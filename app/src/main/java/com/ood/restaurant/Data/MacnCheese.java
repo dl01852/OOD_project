@@ -20,7 +20,7 @@ public class MacnCheese extends Decorator
     @Override
     public String getDescription()
     {
-        return friedChicken.getDescription() + "with Mac & Cheese ";
+        return friedChicken.getDescription() + " with Mac & Cheese ";
     }
 
     public String getName()

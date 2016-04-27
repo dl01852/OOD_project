@@ -11,7 +11,7 @@ public class Burger extends Food
     private double cost;
     public Burger()
     {
-        FoodName = "Burger ";
+        FoodName = "Burger";
     }
 
 
