@@ -16,14 +16,14 @@
 
         <TextView
                 android:layout_width="0dp"
-                android:layout_weight="0.75"
+                android:layout_weight="0.7"
                 android:layout_height="wrap_content"
                 android:id="@+id/order_description"
                 android:text="Order description"/>
 
         <TextView
                 android:layout_width="0dp"
-                android:layout_weight="0.25"
+                android:layout_weight="0.3"
                 android:layout_height="wrap_content"
                 android:id="@+id/order_cost"
                 android:text="Order Price"
