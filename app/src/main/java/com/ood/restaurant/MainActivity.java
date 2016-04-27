@@ -25,4 +25,11 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragment_layout, new TableFragment())
                 .commit();
     }
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        myDB.deleteAllOrders();
+    }
+
 }
