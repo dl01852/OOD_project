@@ -66,6 +66,7 @@ public class StaticData {
         // Condiments for a Pizza
         List<Decorator> pizzaDecorators = new ArrayList<>();
         pizzaDecorators.add(new Pepperoni());
+        pizzaDecorators.add(new Cheese());
         pizzaDecorators.add(new Olives());
         pizzaDecorators.add(new Sausage());
         pizzaDecorators.add(new Mushrooms());
