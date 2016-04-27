@@ -2,7 +2,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class BaconBits extends PizzaDecorator
+public class BaconBits extends Decorator
 {
     Food pizza;
     String name = "BaconBits";

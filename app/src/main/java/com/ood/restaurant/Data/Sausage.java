@@ -2,7 +2,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Sausage extends PizzaDecorator
+public class Sausage extends Decorator
 {
     Food pizza;
     String name = "Sausage";

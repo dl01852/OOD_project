@@ -3,7 +3,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/26/2016.
  */
-public class CollardGreens
+public class CollardGreens extends Decorator
 {
     Food friedChicken;
     String name = "CollardGreens";

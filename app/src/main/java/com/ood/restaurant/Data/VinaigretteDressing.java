@@ -3,23 +3,25 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/26/2016.
  */
-public class FriedOkra extends Decorator
+public class VinaigretteDressing extends Decorator
 {
-    Food friedChicken;
-    String name = "FriedOkra";
+    Food salad;
+    String name = "VinaigretteDressing";
     double cost = 0;
-    String decoratorDescription = "breaded okra and fried";
+    String decoratorDescription = "vinaigrette dressing";
 
-    public FriedOkra(Food chickenToOrder)
+    public VinaigretteDressing(Food saladToOrder)
     {
-        this.friedChicken = chickenToOrder;
+        this.salad = saladToOrder;
     }
-    public FriedOkra(){}
+
+    public VinaigretteDressing(){}
 
     @Override
     public String getDescription()
     {
-        return friedChicken.getDescription() + "with fried okra ";
+
+        return salad.getDescription() + " with vinaigrette dressing";
     }
 
     public String getName()
@@ -40,6 +42,6 @@ public class FriedOkra extends Decorator
     @Override
     public double cost()
     {
-        return friedChicken.cost();
+        return salad.cost() + cost;
     }
 }

@@ -2,7 +2,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Mushrooms extends PizzaDecorator
+public class Mushrooms extends Decorator
 {
     Food pizza;
     String name = "Mushrooms";

@@ -58,21 +58,48 @@ public class StaticData {
         List<Decorator> burgerDecorators = new ArrayList<>();
         burgerDecorators.add(new Tomatoes());
         burgerDecorators.add(new Lettuce());
-//        burgerDecorators.add(new Onions());
-//        burgerDecorators.add(new Cheese());
-//        burgerDecorators.add(new Bacon());
+        burgerDecorators.add(new Onions());
+        burgerDecorators.add(new Cheese());
+        burgerDecorators.add(new Bacon());
         ItemsToDecorators.put(Burger.class, burgerDecorators);
 
         // Condiments for a Pizza
         List<Decorator> pizzaDecorators = new ArrayList<>();
-         pizzaDecorators.add(new Pepperoni());
-//        pizzaDecorators.add(new Olives());
-//        pizzaDecorators.add(new Sausage());
-//        pizzaDecorators.add(new Mushrooms());
-//        pizzaDecorators.add(new BaconBits());
-
-
+        pizzaDecorators.add(new Pepperoni());
+        pizzaDecorators.add(new Olives());
+        pizzaDecorators.add(new Sausage());
+        pizzaDecorators.add(new Mushrooms());
+        pizzaDecorators.add(new BaconBits());
         ItemsToDecorators.put(Pizza.class,pizzaDecorators);
+
+        //Condiments for fried chicken
+        List<Decorator> friedChickenDecorators = new ArrayList<>();
+        friedChickenDecorators.add(new MacnCheese());
+        friedChickenDecorators.add(new FriedOkra());
+        friedChickenDecorators.add(new CollardGreens());
+        ItemsToDecorators.put(FriedChicken.class,friedChickenDecorators);
+
+        // Condiments for bbq ribs
+        List<Decorator> bbqRibsDecorator = new ArrayList<>();
+        bbqRibsDecorator.add(new Coleslaw());
+        bbqRibsDecorator.add(new TexasToast());
+        ItemsToDecorators.put(BBQRibs.class,bbqRibsDecorator);
+
+        // Condiments for house salad
+        List<Decorator> houseSaladDecorator = new ArrayList<>();
+        houseSaladDecorator.add(new RanchDressing());
+        houseSaladDecorator.add(new CaesarDressing());
+        houseSaladDecorator.add(new VinaigretteDressing());
+        houseSaladDecorator.add(new ItalianDressing());
+        ItemsToDecorators.put(HouseSalad.class,houseSaladDecorator);
+
+        // Condiments for house salad
+        List<Decorator> caesarSaladDecorator = new ArrayList<>();
+        caesarSaladDecorator.add(new RanchDressing());
+        caesarSaladDecorator.add(new CaesarDressing());
+        caesarSaladDecorator.add(new VinaigretteDressing());
+        caesarSaladDecorator.add(new ItalianDressing());
+        ItemsToDecorators.put(CaesarSalad.class,caesarSaladDecorator);
     }
 
     private void populateMenu()
