@@ -80,7 +80,8 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
                 break;
 
             case R.id.btn_view_orders:
-                viewOrdersCommand.execute(this,table);
+                // View Orders button was clicked - execute the ViewOrdersCommand
+                viewOrdersCommand.execute(this, getActivity(), table);
                 break;
         }
     }

@@ -1,35 +1,44 @@
 package com.ood.restaurant.commands;
 
-import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 import com.ood.restaurant.*;
 import com.ood.restaurant.TableDialog;
 
-
 /**
- * This command will close the TableDialog and show the table's orders
- *
+ * This command will close the TableDialog and open the ViewOrdersDialog to show all of the orders
+ * for this table
  * @author Michael Palmer
  */
+public class ViewOrdersCommand {
+    private orderDatabase orderDatabase = MainActivity.myDB;
 
-public class ViewOrdersCommand extends AppCompatActivity {
     /**
-     * Invalidate all views in the GridView and reload the adapter. This will change the color
-     * of a table when it has been seating or made available.
-     */;
-
-    orderDatabase orderDatabase = MainActivity.myDB;
-
-    public void execute(TableDialog dialog, int tableID) {
-
-
-        // Close the dialog
-        Order temp_order = orderDatabase.getOrder(tableID);
+     * Execute the command
+     * @param dialog TableDialog instance
+     * @param activity Activity instance
+     * @param tableID Table number to lookup orders on
+     */
+    public void execute(TableDialog dialog, FragmentActivity activity, int tableID) {
+        // Close the table dialog
         dialog.dismiss();
-        if(temp_order != null)
-            Toast.makeText(MainActivity.context,temp_order.getOrderDescription(),Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(MainActivity.context,"Table hasn't placed order yet", Toast.LENGTH_SHORT).show();
-        // TODO: Implement this
+
+        // Abort and show a toast if there aren't any orders yet
+        if (orderDatabase.getOrders(tableID).size() == 0) {
+            Toast.makeText(activity, "Table hasn't placed order yet", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Create the view orders dialog
+        ViewOrdersDialog ordersDialog = new ViewOrdersDialog();
+
+        // Set arguments
+        Bundle args = new Bundle();
+        args.putInt("table", tableID);
+        ordersDialog.setArguments(args);
+
+        // Show the dialog
+        ordersDialog.show(activity.getSupportFragmentManager(), "ViewOrdersDialog");
     }
 }
