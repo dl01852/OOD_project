@@ -7,7 +7,7 @@ public class Pepperoni extends Decorator
     Food pizza;
     String name = "Pepperoni";
     double cost = .10;
-    String decoratorDescription = "Nice round piece of Salami";
+    String decoratorDescription = "piece of Salami";
 
     public Pepperoni(){}
     public Pepperoni(Food pizzaToOrder)
