@@ -8,7 +8,7 @@ public class CollardGreens extends Decorator
     Food friedChicken;
     String name = "CollardGreens";
     double cost = 0;
-    String decoratorDescription = "Sauteed collard greens";
+    String decoratorDescription = "Sauteed";
 
     public CollardGreens(Food chickenToOrder)
     {
