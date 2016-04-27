@@ -1,23 +1,18 @@
 package com.ood.restaurant.fragments;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.ood.restaurant.Data.Decorator;
-import com.ood.restaurant.Data.Food;
 import com.ood.restaurant.Listeners;
 import com.ood.restaurant.MainActivity;
 import com.ood.restaurant.MenuItemData;
 import com.ood.restaurant.R;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,13 +22,10 @@ public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
     private LayoutInflater inflater;
     List<MenuItemData> decorators = Collections.emptyList();
-    private Listeners.OnCustomizeAddListener mListener;
-    public CustomizeItemViewAdapter(Context context, List<MenuItemData> hackyData, Listeners.OnCustomizeAddListener listener)
+    public CustomizeItemViewAdapter(Context context, List<MenuItemData> data)
     {
-
         inflater = LayoutInflater.from(context);
-        decorators = hackyData;
-        mListener = listener;
+        decorators = data;
     }
 
     @Override
@@ -51,18 +43,6 @@ public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.setDecorator_price(
                 MainActivity.context.getString(R.string.item_price, currentDecorator.itemPrice));
         holder.setDecorator_description(currentDecorator.itemDescription);
-//        Button btn_add = (Button) holder.getView().findViewById(R.id.btnAdd);
-
-//        btn_add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                if(mListener != null)
-//                {
-////                    mListener.onCustomizeClicked(currentDecorator.itemName);
-//                }
-//            }
-//        });
     }
 
     @Override

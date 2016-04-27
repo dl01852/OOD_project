@@ -16,8 +16,8 @@ public class AddOrderCommand {
      */
     public static int table;
     public void execute(TableDialog dialog,int table) {
+        AddOrderCommand.table = table;
 
-        this.table = table;
         // Close the dialog
         dialog.dismiss();
 

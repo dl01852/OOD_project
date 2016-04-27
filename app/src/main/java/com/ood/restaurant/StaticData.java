@@ -28,11 +28,6 @@ public class StaticData {
         addStuff();
     }
 
-//    public void addMenuItem(Food item)
-//    {
-//        Menu.add(item);
-//    }
-
     /**
      * Get the singleton instance, creating a new instance if needed
      * @return Singleton instance
@@ -59,7 +54,6 @@ public class StaticData {
 
     private void addStuff()
     {
-        // LOL SUCH BAD CODE!
         // Condiments for a Burger.
         List<Decorator> burgerDecorators = new ArrayList<>();
         burgerDecorators.add(new Tomatoes());
