@@ -43,4 +43,9 @@ public class TexasToast extends Decorator
     {
         return ribs.cost();
     }
+
+    @Override
+    public String orderMessage() {
+        return "Texas Toast Added...";
+    }
 }

@@ -43,4 +43,9 @@ public class FrenchFries extends Decorator
     {
         return burger.cost();
     }
+
+    @Override
+    public String orderMessage() {
+        return "French Fries Added...";
+    }
 }
