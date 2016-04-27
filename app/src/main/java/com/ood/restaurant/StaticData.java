@@ -67,7 +67,7 @@ public class StaticData {
         List<Decorator> pizzaDecorators = new ArrayList<>();
         pizzaDecorators.add(new Pepperoni());
         pizzaDecorators.add(new Cheese());
-        pizzaDecorators.add(new Olives());
+//        pizzaDecorators.add(new Olives());
         pizzaDecorators.add(new Sausage());
         pizzaDecorators.add(new Mushrooms());
         pizzaDecorators.add(new BaconBits());

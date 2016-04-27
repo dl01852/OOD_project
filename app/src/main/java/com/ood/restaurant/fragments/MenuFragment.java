@@ -72,9 +72,4 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
         customizeOrderFragment.setArguments(args);
         customizeOrderFragment.show(getActivity().getSupportFragmentManager(), "Dialog");
     }
-
-    @Override
-    public void onOrderClicked() {
-        // TODO: Implement me!
-    }
 }

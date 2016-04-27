@@ -50,19 +50,9 @@
                 android:layout_height="wrap_content"
                 android:text="CUSTOMIZE"
                 android:layout_below="@id/blankLine"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:id="@+id/btnCustomize"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ORDER"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_toLeftOf="@id/btnCustomize"
-                android:layout_below="@id/blankLine"
-                android:id="@+id/btnOrder"
-        />
-
+                android:id="@+id/btnCustomize" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>
