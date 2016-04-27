@@ -9,17 +9,12 @@ public class BBQRibs extends Food
 
     public BBQRibs()
     {
-        FoodName = "Full rack of ribs";
+        FoodName = "BBQRibs";
     }
     @Override
     public double cost()
     {
         cost = 19.95;
         return cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "BBQ Ribs Added...";
     }
 }

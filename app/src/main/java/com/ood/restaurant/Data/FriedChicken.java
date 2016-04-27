@@ -9,17 +9,12 @@ public class FriedChicken extends Food
 
     public FriedChicken()
     {
-        FoodName = "Fried Chicken ";
+        FoodName = "FriedChicken";
     }
     @Override
     public double cost()
     {
         cost = 10.99;
         return cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Fried Chicken Added...";
     }
 }

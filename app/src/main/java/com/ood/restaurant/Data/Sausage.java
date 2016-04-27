@@ -2,7 +2,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Sausage extends PizzaDecorator
+public class Sausage extends Decorator
 {
     Food pizza;
     String name = "Sausage";
@@ -19,7 +19,7 @@ public class Sausage extends PizzaDecorator
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with Sausage ";
+        return pizza.getDescription() + " with Sausage";
     }
 
     public String getName()
@@ -32,14 +32,11 @@ public class Sausage extends PizzaDecorator
         return cost;
     }
 
+    public String getDecoratorDescription(){return decoratorDescription;}
+
     @Override
     public double cost()
     {
         return pizza.cost() + cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Sausage Added...";
     }
 }

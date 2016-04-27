@@ -27,7 +27,7 @@ public class Lettuce extends Decorator
     public String getDescription()
     {
 
-        return burger.getDescription() + "with lettuce ";
+        return burger.getDescription() + " with lettuce";
         // get the description from the burger object and then add on the description from this class
         // soo for this particular class, the description you'd add is  ' with lettuce'
         // then return that(don't return null).
@@ -53,10 +53,5 @@ public class Lettuce extends Decorator
         return burger.cost() + cost;
         // get the cost from the burger object and then add on the cost for lettuce(if there is a cost) and return that value.
         // (don't return 0)
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Lettuce Added...";
     }
 }

@@ -2,7 +2,7 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/16/2016.
  */
-public class Mushrooms extends PizzaDecorator
+public class Mushrooms extends Decorator
 {
     Food pizza;
     String name = "Mushrooms";
@@ -19,7 +19,7 @@ public class Mushrooms extends PizzaDecorator
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with mushrooms ";
+        return pizza.getDescription() + " with mushrooms";
     }
 
     public String getName()
@@ -41,10 +41,5 @@ public class Mushrooms extends PizzaDecorator
     public double cost()
     {
         return pizza.cost() + cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Mushrooms Added...";
     }
 }

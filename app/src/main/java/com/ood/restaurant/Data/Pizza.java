@@ -8,7 +8,7 @@ public class Pizza extends Food
 
     public Pizza()
     {
-        FoodName = "Pizza ";
+        FoodName = "Pizza";
     }
 
     @Override
@@ -22,10 +22,5 @@ public class Pizza extends Food
     {
         cost = 10.99;
         return cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Pizza Added...";
     }
 }

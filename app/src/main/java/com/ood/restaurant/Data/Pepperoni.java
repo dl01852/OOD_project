@@ -7,7 +7,7 @@ public class Pepperoni extends Decorator
     Food pizza;
     String name = "Pepperoni";
     double cost = .10;
-    String decoratorDescription = "Nice round piece of Salami";
+    String decoratorDescription = "piece of Salami";
 
     public Pepperoni(){}
     public Pepperoni(Food pizzaToOrder)
@@ -29,17 +29,12 @@ public class Pepperoni extends Decorator
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with Pepperoni ";
+        return pizza.getDescription() + " with Pepperoni";
     }
 
     @Override
     public double cost()
     {
         return pizza.cost() + cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Pepperoni Added...";
     }
 }

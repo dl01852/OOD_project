@@ -1,4 +1,4 @@
-package com.ood.restaurant;
+package com.ood.restaurant.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.ood.restaurant.Listeners;
+import com.ood.restaurant.MainActivity;
+import com.ood.restaurant.MenuItemData;
+import com.ood.restaurant.R;
 
 import java.util.Collections;
 import java.util.List;
@@ -56,17 +61,6 @@ public class MenuItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
                 }
             }
         });
-
-//        Button btn_order = (Button) holder.mView.findViewById(R.id.btnOrder);
-//        btn_customize.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                if (mListener != null) {
-//                    mListener.onOrderClicked();
-//                }
-//            }
-//        });
     }
 
     @Override

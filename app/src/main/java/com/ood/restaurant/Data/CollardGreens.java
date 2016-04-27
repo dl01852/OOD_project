@@ -3,12 +3,12 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/26/2016.
  */
-public class CollardGreens
+public class CollardGreens extends Decorator
 {
     Food friedChicken;
     String name = "CollardGreens";
     double cost = 0;
-    String decoratorDescription = "Sauteed collard greens";
+    String decoratorDescription = "Sauteed";
 
     public CollardGreens(Food chickenToOrder)
     {
@@ -20,7 +20,7 @@ public class CollardGreens
     public String getDescription()
     {
 
-        return friedChicken.getDescription() + "with collard greens ";
+        return friedChicken.getDescription() + " with collard greens";
     }
 
     public String getName()

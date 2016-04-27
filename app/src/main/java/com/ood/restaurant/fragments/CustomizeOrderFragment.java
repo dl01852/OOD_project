@@ -1,4 +1,4 @@
-package com.ood.restaurant;
+package com.ood.restaurant.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -11,9 +11,15 @@ import android.widget.*;
 
 import com.ood.restaurant.Data.Decorator;
 import com.ood.restaurant.Data.Food;
+import com.ood.restaurant.MainActivity;
+import com.ood.restaurant.MenuItemData;
+import com.ood.restaurant.Order;
+import com.ood.restaurant.R;
+import com.ood.restaurant.StaticData;
 import com.ood.restaurant.commands.AddOrderCommand;
-import com.ood.restaurant.fragments.CustomizeItemViewAdapter;
+import com.ood.restaurant.adapters.CustomizeItemViewAdapter;
 import com.ood.restaurant.fragments.MenuFragment;
+import com.ood.restaurant.orderDatabase;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -50,7 +56,8 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
                 MenuItemData tempData = new MenuItemData();
                 tempData.itemName = (String) d.getClass().getMethod("getName", (Class[]) null)
                         .invoke(d, (Object[]) null);
-                tempData.itemDescription = tempData.itemName;
+                tempData.itemDescription = (String)d.getClass().getMethod("getDecoratorDescription", (Class[]) null)
+                        .invoke(d, (Object[]) null);
                 tempData.itemPrice = (Double) d.getClass().getMethod("getCost", (Class[]) null)
                         .invoke(d, (Object[]) null);
                 data.add(tempData);
@@ -99,6 +106,7 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
 
             // Close the dialog and show a toast
             MenuFragment.customizeOrderFragment.dismiss();
+
             Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
 
             // Add to database

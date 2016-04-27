@@ -3,24 +3,25 @@ package com.ood.restaurant.Data;
 /**
  * Created by Nicholas on 4/26/2016.
  */
-public class TexasToast extends Decorator
+public class CaesarDressing extends Decorator
 {
-    Food ribs;
-    String name = "TexasToast";
+    Food salad;
+    String name = "CaesarDressing";
     double cost = 0;
-    String decoratorDescription = "Delicious";
+    String decoratorDescription = "caesar dressing";
 
-    public TexasToast(Food ribsToOrder)
+    public CaesarDressing(Food saladToOrder)
     {
-        this.ribs = ribsToOrder;
+        this.salad = saladToOrder;
     }
 
-    public TexasToast(){}
+    public CaesarDressing(){}
 
     @Override
     public String getDescription()
     {
-        return ribs.getDescription() + " with texas toast";
+
+        return salad.getDescription() + " with caesar dressing";
     }
 
     public String getName()
@@ -41,6 +42,6 @@ public class TexasToast extends Decorator
     @Override
     public double cost()
     {
-        return ribs.cost();
+        return salad.cost() + cost;
     }
 }

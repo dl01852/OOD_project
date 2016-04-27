@@ -8,17 +8,18 @@ public class FriedOkra extends Decorator
     Food friedChicken;
     String name = "FriedOkra";
     double cost = 0;
-    String decoratorDescription = "breaded okra and fried";
+    String decoratorDescription = "breaded okra & fried";
 
     public FriedOkra(Food chickenToOrder)
     {
         this.friedChicken = chickenToOrder;
     }
+    public FriedOkra(){}
 
     @Override
     public String getDescription()
     {
-        return friedChicken.getDescription() + "with fried okra ";
+        return friedChicken.getDescription() + " with fried okra";
     }
 
     public String getName()
@@ -40,10 +41,5 @@ public class FriedOkra extends Decorator
     public double cost()
     {
         return friedChicken.cost();
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Frid Okra Added...";
     }
 }

@@ -20,7 +20,7 @@ public class BakedBeans extends Decorator
     @Override
     public String getDescription()
     {
-        return ribs.getDescription() + "with baked beans ";
+        return ribs.getDescription() + " with baked beans";
     }
 
     public String getName()
@@ -42,10 +42,5 @@ public class BakedBeans extends Decorator
     public double cost()
     {
         return ribs.cost();
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Baked Beans Added...";
     }
 }

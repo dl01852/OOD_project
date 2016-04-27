@@ -8,7 +8,7 @@ public class HouseSalad extends Food
     private double cost;
     public HouseSalad()
     {
-        FoodName = "House Salad";
+        FoodName = "HouseSalad";
     }
     @Override
     public double cost()
@@ -16,10 +16,5 @@ public class HouseSalad extends Food
         cost = 4.99;
 
         return cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "House Salad Added...";
     }
 }

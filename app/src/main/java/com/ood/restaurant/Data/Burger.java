@@ -11,7 +11,7 @@ public class Burger extends Food
     private double cost;
     public Burger()
     {
-        FoodName = "Burger ";
+        FoodName = "Burger";
     }
 
 
@@ -22,10 +22,5 @@ public class Burger extends Food
         // set the cost, any price. idc
         // then return the cost.
         return cost;
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Burger Added...";
     }
 }
