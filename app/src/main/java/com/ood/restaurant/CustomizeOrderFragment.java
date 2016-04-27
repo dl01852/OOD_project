@@ -18,8 +18,7 @@ import com.ood.restaurant.fragments.MenuFragment;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-public class CustomizeOrderFragment extends DialogFragment implements
-        Listeners.OnCustomizeAddListener, View.OnClickListener {
+public class CustomizeOrderFragment extends DialogFragment implements View.OnClickListener {
     private RecyclerView recyclerView;
     String itemName;
     StaticData sData = StaticData.i();
@@ -33,7 +32,7 @@ public class CustomizeOrderFragment extends DialogFragment implements
         View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
         CustomizeItemViewAdapter decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),
-                converToMenuItem(itemName), this);
+                converToMenuItem(itemName));
         recyclerView.setAdapter(decoratorAdapter);
         Button button = (Button) layout.findViewById(R.id.btn_save_order);
         button.setOnClickListener(this);
@@ -64,11 +63,6 @@ public class CustomizeOrderFragment extends DialogFragment implements
         }
 
         return data;
-    }
-
-    @Override
-    public void onCustomizeClicked(String decoratorName) {
-        Toast.makeText(getContext(),decoratorName,Toast.LENGTH_LONG).show();
     }
 
     @Override

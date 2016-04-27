@@ -22,12 +22,10 @@ public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
     private LayoutInflater inflater;
     List<MenuItemData> decorators = Collections.emptyList();
-    private Listeners.OnCustomizeAddListener mListener;
-    public CustomizeItemViewAdapter(Context context, List<MenuItemData> hackyData, Listeners.OnCustomizeAddListener listener)
+    public CustomizeItemViewAdapter(Context context, List<MenuItemData> hackyData)
     {
         inflater = LayoutInflater.from(context);
         decorators = hackyData;
-        mListener = listener;
     }
 
     @Override
