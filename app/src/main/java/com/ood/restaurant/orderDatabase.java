@@ -120,6 +120,7 @@ public class orderDatabase extends SQLiteOpenHelper {
                 // Save data from the query
                 int orderId = cursor.getInt(cursor.getColumnIndex(ORDER_ID));
                 String description = cursor.getString(cursor.getColumnIndex(ORDER));
+                double cost = cursor.getDouble(cursor.getColumnIndex(ORDER_COST));
 
                 // Create a new Order object and add it to the ArrayList
                 Order order = new Order(orderId, description,cost);

@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    card_view:contentPadding="@dimen/dialog_padding"
-    card_view:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="4dp"
-    card_view:cardElevation="5dp">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:contentPadding="@dimen/dialog_padding"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="5dp">
 
-    <RelativeLayout android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+    >
 
         <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="0.75"
                 android:layout_height="wrap_content"
                 android:id="@+id/order_description"
-                android:text="Order description" />
+                android:text="Order description"/>
 
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.25"
                 android:layout_height="wrap_content"
                 android:id="@+id/order_cost"
                 android:text="Order Price"
-                android:layout_alignParentEnd="true"
+
         />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </android.support.v7.widget.CardView>
