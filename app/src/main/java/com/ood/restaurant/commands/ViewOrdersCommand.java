@@ -25,7 +25,6 @@ public class ViewOrdersCommand extends AppCompatActivity {
 
         // Close the dialog
 
-        tableID++;
         Order temp_order = orderDatabase.getOrder(tableID);
         dialog.dismiss();
         Toast.makeText(MainActivity.context,temp_order.getOrderDescription(),Toast.LENGTH_SHORT).show();
