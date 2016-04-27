@@ -24,6 +24,6 @@
         android:layout_gravity="end"
         android:id="@+id/btn_save_order"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:text="Save" />
+        android:text="Order" />
 
 </LinearLayout>
