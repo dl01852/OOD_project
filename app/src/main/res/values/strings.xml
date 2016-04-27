@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Restaurant</string>
+    <string name="app_name">EatEasy</string>
 
     <!-- Tables -->
     <string name="tableN">Table %d</string>
