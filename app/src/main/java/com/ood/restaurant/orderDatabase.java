@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by david-lewis on 4/25/2016.
@@ -92,6 +94,38 @@ public class orderDatabase extends SQLiteOpenHelper {
             return order;
         } else
             return null; // Error
+    }
+
+    /**
+     * Get all of the orders for a specific table
+     * @param id Table id
+     * @return ArrayList of Orders
+     */
+    public ArrayList<Order> getOrders(int id) {
+        // Initialize
+        ArrayList<Order> orders = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Select data from the database
+        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE TableID = ?",
+                new String[]{String.valueOf(id)});
+
+        // Loop through the query results
+        if (cursor.moveToFirst()) {
+            do {
+                // Save data from the query
+                int orderId = cursor.getInt(cursor.getColumnIndex(ORDER_ID));
+                String description = cursor.getString(cursor.getColumnIndex(ORDER));
+
+                // Create a new Order object and add it to the ArrayList
+                Order order = new Order(orderId, description);
+                orders.add(order);
+            } while (cursor.moveToNext());
+        }
+
+        // Close the cursor and return the orders
+        cursor.close();
+        return orders;
     }
 
     public Integer deleteOrder(Order order)
