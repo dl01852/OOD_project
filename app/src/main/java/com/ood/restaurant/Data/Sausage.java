@@ -32,6 +32,8 @@ public class Sausage extends Decorator
         return cost;
     }
 
+    public String getDecoratorDescription(){return decoratorDescription;}
+
     @Override
     public double cost()
     {
