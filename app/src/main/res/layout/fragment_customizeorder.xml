@@ -10,7 +10,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:id="@+id/card_test"
             card_view:contentPadding="10dp"
             card_view:cardUseCompatPadding="true"
@@ -21,8 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
         >
 
@@ -43,7 +42,7 @@
                     android:layout_width="60dp"
                     android:layout_height="35dp"
                     android:text="ADD"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_below="@+id/txtToppingPrice"
                     android:id="@+id/chk_add"
             />
@@ -52,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Price"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignStart="@id/chk_add"
                     android:id="@+id/txtToppingPrice"
             />
