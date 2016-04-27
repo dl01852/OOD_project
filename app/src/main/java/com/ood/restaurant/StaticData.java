@@ -84,7 +84,8 @@ public class StaticData {
         List<Decorator> bbqRibsDecorator = new ArrayList<>();
         bbqRibsDecorator.add(new Coleslaw());
         bbqRibsDecorator.add(new TexasToast());
-        bbqRibsDecorator.add(new BBQSauce());
+        bbqRibsDecorator.add(new MacnCheese());
+        bbqRibsDecorator.add(new CollardGreens());
         ItemsToDecorators.put(BBQRibs.class,bbqRibsDecorator);
 
         // Condiments for house salad
