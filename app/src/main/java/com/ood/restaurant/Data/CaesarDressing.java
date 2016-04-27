@@ -44,4 +44,9 @@ public class CaesarDressing extends Decorator
     {
         return salad.cost() + cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Caesar Dressing Added...";
+    }
 }

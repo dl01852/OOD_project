@@ -44,4 +44,9 @@ public class VinaigretteDressing extends Decorator
     {
         return salad.cost() + cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Vinaigrette Dressing Added...";
+    }
 }

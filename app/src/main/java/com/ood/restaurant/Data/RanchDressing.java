@@ -44,4 +44,9 @@ public class RanchDressing extends Decorator
     {
         return salad.cost() + cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Ranch Dressing Added...";
+    }
 }
