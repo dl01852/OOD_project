@@ -17,4 +17,9 @@ public class BBQRibs extends Food
         cost = 19.95;
         return cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "BBQ Ribs Added...";
+    }
 }

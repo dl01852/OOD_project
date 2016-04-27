@@ -42,4 +42,9 @@ public class BaconBits extends Decorator
     {
         return pizza.cost() + cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Bacon Bits Added...";
+    }
 }

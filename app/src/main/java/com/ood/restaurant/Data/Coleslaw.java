@@ -42,4 +42,9 @@ public class Coleslaw extends Decorator
     {
         return ribs.cost();
     }
+
+    @Override
+    public String orderMessage() {
+        return "Coleslaw Added...";
+    }
 }

@@ -37,4 +37,9 @@ public class Pepperoni extends Decorator
     {
         return pizza.cost() + cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Pepperoni Added...";
+    }
 }

@@ -42,4 +42,9 @@ public class Mushrooms extends Decorator
     {
         return pizza.cost() + cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Mushrooms Added...";
+    }
 }

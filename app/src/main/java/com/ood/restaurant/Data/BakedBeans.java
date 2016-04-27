@@ -43,4 +43,9 @@ public class BakedBeans extends Decorator
     {
         return ribs.cost();
     }
+
+    @Override
+    public String orderMessage() {
+        return "Baked Beans Added...";
+    }
 }
