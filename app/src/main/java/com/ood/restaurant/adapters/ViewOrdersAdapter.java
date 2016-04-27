@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.ood.restaurant.MainActivity;
 import com.ood.restaurant.Order;
 import com.ood.restaurant.R;
 import org.w3c.dom.Text;
@@ -52,7 +53,8 @@ public class ViewOrdersAdapter extends RecyclerView.Adapter<OrdersViewHolder> {
     @Override
     public void onBindViewHolder(OrdersViewHolder holder, int position) {
         holder.order_description.setText(orders.get(position).getOrderDescription());
-        holder.order_cost.setText(String.valueOf(orders.get(position).getCost()));
+        holder.order_cost.setText(MainActivity.context.getString(
+                R.string.total_price, orders.get(position).getCost()));
     }
 
     /**

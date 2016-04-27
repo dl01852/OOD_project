@@ -107,7 +107,7 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
             // Close the dialog and show a toast
             MenuFragment.customizeOrderFragment.dismiss();
 
-            Toast.makeText(getContext(), foodDescription +" " + food.cost(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), foodDescription +"\nCost: $" + food.cost(), Toast.LENGTH_SHORT).show();
 
             // Add to database
             Order order = new Order();
