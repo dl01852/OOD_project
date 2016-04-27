@@ -42,4 +42,9 @@ public class CollardGreens extends Decorator
     {
         return friedChicken.cost();
     }
+
+    @Override
+    public String orderMessage() {
+        return "Collard Greens Added...";
+    }
 }
