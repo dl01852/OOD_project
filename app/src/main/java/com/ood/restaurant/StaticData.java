@@ -1,20 +1,6 @@
 package com.ood.restaurant;
 
-import com.ood.restaurant.Data.Bacon;
-import com.ood.restaurant.Data.BaconBits;
-import com.ood.restaurant.Data.Burger;
-import com.ood.restaurant.Data.Cheese;
-import com.ood.restaurant.Data.Decorator;
-import com.ood.restaurant.Data.Food;
-import com.ood.restaurant.Data.Lettuce;
-import com.ood.restaurant.Data.Menu;
-import com.ood.restaurant.Data.Mushrooms;
-import com.ood.restaurant.Data.Olives;
-import com.ood.restaurant.Data.Onions;
-import com.ood.restaurant.Data.Pepperoni;
-import com.ood.restaurant.Data.Pizza;
-import com.ood.restaurant.Data.Sausage;
-import com.ood.restaurant.Data.Tomatoes;
+import com.ood.restaurant.Data.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,11 +28,6 @@ public class StaticData {
         addStuff();
     }
 
-//    public void addMenuItem(Food item)
-//    {
-//        Menu.add(item);
-//    }
-
     /**
      * Get the singleton instance, creating a new instance if needed
      * @return Singleton instance
@@ -73,7 +54,6 @@ public class StaticData {
 
     private void addStuff()
     {
-        // LOL SUCH BAD CODE!
         // Condiments for a Burger.
         List<Decorator> burgerDecorators = new ArrayList<>();
         burgerDecorators.add(new Tomatoes());
