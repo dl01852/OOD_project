@@ -1,25 +1,27 @@
 package com.ood.restaurant.Data;
-/**
- * Created by Nicholas on 4/16/2016.
- */
-public class Olives extends Decorator
-{
-    Food pizza;
-    String name = "Olives";
-    double cost = 0;
-    String decoratorDescription = "fresh olives";
 
-    public Olives(Food pizzaToOrder)
+/**
+ * Created by Nicholas on 4/26/2016.
+ */
+public class CaesarDressing extends Decorator
+{
+    Food salad;
+    String name = "CaesarDressing";
+    double cost = 0;
+    String decoratorDescription = "caesar dressing";
+
+    public CaesarDressing(Food saladToOrder)
     {
-        this.pizza = pizzaToOrder;
+        this.salad = saladToOrder;
     }
 
-    public Olives(){}
+    public CaesarDressing(){}
 
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with Olives ";
+
+        return salad.getDescription() + " with caesar dressing";
     }
 
     public String getName()
@@ -40,6 +42,6 @@ public class Olives extends Decorator
     @Override
     public double cost()
     {
-        return pizza.cost() + cost;
+        return salad.cost() + cost;
     }
 }
