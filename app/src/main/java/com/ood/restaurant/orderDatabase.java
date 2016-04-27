@@ -17,6 +17,7 @@ public class orderDatabase extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "orders";
     public static final String ORDER_ID = "id";
     public static final String ORDER = "description";
+    public static final String TABLE_ID ="tableID";
 
     private int id;
     private String orderDescription;
@@ -34,7 +35,8 @@ public class orderDatabase extends SQLiteOpenHelper {
         String query = String.format("CREATE TABLE %s\n", TABLE_NAME) +
                 "(" +
                 String.format("%s INTEGER PRIMARY KEY,\n", ORDER_ID) +
-                String.format("%s text\n", ORDER) +
+                String.format("%s text,\n", ORDER) +
+                String.format("%s INTEGER\n",TABLE_ID) +
                 ")";
 
         db.execSQL(query);
@@ -48,13 +50,14 @@ public class orderDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertOrder(Order order)
+    public boolean insertOrder(Order order,int TableID)
     {
         // inserting an order into the database.
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(ORDER,order.getOrderDescription());
+        contentValues.put(TABLE_ID,TableID);
         db.insert(TABLE_NAME,null,contentValues);
         db.close();
 
@@ -75,7 +78,7 @@ public class orderDatabase extends SQLiteOpenHelper {
     public Order getOrder(int id) {
         Order order; // order to be returned.
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursorData = db.rawQuery("SELECT * FROM orders WHERE id = ?", new String[]{String.valueOf(id)});
+        Cursor cursorData = db.rawQuery("SELECT * FROM orders WHERE TableID = ?", new String[]{String.valueOf(id)});
 
         if (cursorData.moveToFirst()) {
             this.id = cursorData.getInt(cursorData.getColumnIndex(ORDER_ID));

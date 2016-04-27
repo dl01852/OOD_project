@@ -19,6 +19,7 @@ import com.ood.restaurant.Data.Decorator;
 import com.ood.restaurant.Data.DummyContent;
 import com.ood.restaurant.Data.DummyContent.DummyItem;
 import com.ood.restaurant.Data.Food;
+import com.ood.restaurant.commands.AddOrderCommand;
 import com.ood.restaurant.fragments.CustomizeItemViewAdapter;
 import com.ood.restaurant.fragments.MenuFragment;
 
@@ -143,7 +144,7 @@ public class CustomizeOrderFragment extends DialogFragment implements Listeners.
             Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
             Order order = new Order();
             order.setOrderDescription(food.getDescription());
-            myDB.insertOrder(order);
+            myDB.insertOrder(order, AddOrderCommand.table);
         } catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException |
                 NoSuchMethodException | java.lang.InstantiationException e) {
             e.printStackTrace();

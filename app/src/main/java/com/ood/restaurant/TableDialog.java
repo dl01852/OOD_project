@@ -15,7 +15,7 @@ import com.ood.restaurant.commands.*;
  */
 public class TableDialog extends DialogFragment implements View.OnClickListener {
 
-    private int table;
+    public int table;
     private Button btnSeatTable, btnMakeAvailable, btnAddOrder, btnViewOrders;
 
     @Override
@@ -76,7 +76,7 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
 
             case R.id.btn_add_order:
                 // Add Order button was clicked - execute the AddOrderCommand
-                addOrderCommand.execute(this);
+                addOrderCommand.execute(this,table);
                 break;
 
             case R.id.btn_view_orders:
