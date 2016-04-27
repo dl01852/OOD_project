@@ -19,7 +19,7 @@ public class Olives extends Decorator
     @Override
     public String getDescription()
     {
-        return pizza.getDescription() + "with Olives ";
+        return pizza.getDescription() + " with Olives ";
     }
 
     public String getName()

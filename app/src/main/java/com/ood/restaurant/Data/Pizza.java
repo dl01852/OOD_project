@@ -8,7 +8,7 @@ public class Pizza extends Food
 
     public Pizza()
     {
-        FoodName = "Pizza ";
+        FoodName = "Pizza";
     }
 
     @Override

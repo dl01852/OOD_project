@@ -9,7 +9,7 @@ public class FriedChicken extends Food
 
     public FriedChicken()
     {
-        FoodName = "Fried Chicken ";
+        FoodName = "FriedChicken";
     }
     @Override
     public double cost()

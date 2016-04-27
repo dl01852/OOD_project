@@ -19,7 +19,7 @@ public class Coleslaw extends Decorator
     @Override
     public String getDescription()
     {
-        return ribs.getDescription() + "with coleslaw ";
+        return ribs.getDescription() + " with coleslaw ";
     }
 
     public String getName()

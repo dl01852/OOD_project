@@ -8,7 +8,7 @@ public class HouseSalad extends Food
     private double cost;
     public HouseSalad()
     {
-        FoodName = "House Salad";
+        FoodName = "HouseSalad";
     }
     @Override
     public double cost()
