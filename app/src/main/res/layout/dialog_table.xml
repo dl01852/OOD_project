@@ -26,4 +26,11 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/add_order"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_view_orders"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/view_orders"/>
+
 </LinearLayout>

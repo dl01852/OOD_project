@@ -35,7 +35,7 @@ public class Pepperoni extends Decorator
     @Override
     public double cost()
     {
-        return pizza.cost() + 0;
+        return pizza.cost() + cost;
     }
 
     @Override

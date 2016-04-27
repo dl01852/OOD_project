@@ -5,21 +5,42 @@ package com.ood.restaurant.Data;
 public class Mushrooms extends PizzaDecorator
 {
     Food pizza;
+    String name = "Mushrooms";
+    double cost = 0;
+    String decoratorDescription = "fresh mushrooms";
 
     public Mushrooms(Food pizzaToOrder)
     {
         this.pizza = pizzaToOrder;
     }
+
+    public Mushrooms(){}
+
     @Override
     public String getDescription()
     {
         return pizza.getDescription() + "with mushrooms ";
     }
 
+    public String getName()
+    {
+        return name;
+    }
+
+    public double getCost()
+    {
+        return cost;
+    }
+
+    public String getDecoratorDescription()
+    {
+        return decoratorDescription;
+    }
+
     @Override
     public double cost()
     {
-        return pizza.cost() + 0;
+        return pizza.cost() + cost;
     }
 
     @Override

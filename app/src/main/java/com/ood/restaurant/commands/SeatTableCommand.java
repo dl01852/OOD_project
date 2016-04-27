@@ -1,9 +1,6 @@
 package com.ood.restaurant.commands;
 
 import com.ood.restaurant.StaticData;
-import com.ood.restaurant.fragments.TableFragment;
-
-import android.graphics.Color;
 import android.widget.Button;
 
 /**
@@ -11,20 +8,20 @@ import android.widget.Button;
  */
 public class SeatTableCommand implements TableReceiver{
     @Override
-    public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder, int table) {
+    public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder,
+                        Button btnViewOrders, int table) {
+        // Set the table as seated
         StaticData.i().tables().set(table, false);
-        toggleButton(btnSeatTable);
-        toggleButton(btnMakeAvailable);
-        toggleButton(btnAddOrder);
-        ReloadTablesCommand.execute();
-    }
 
-    private void toggleButton(Button button) {
-        if (button.isEnabled()) {
-            button.setTextColor(Color.GRAY);
-        } else {
-            button.setTextColor(Color.WHITE);
-        }
-        button.setEnabled(!button.isEnabled());
+        // Toggle the button states
+        ToggleButtonCommand toggleButtonCommand = new ToggleButtonCommand();
+        toggleButtonCommand.execute(btnSeatTable);
+        toggleButtonCommand.execute(btnMakeAvailable);
+        toggleButtonCommand.execute(btnAddOrder);
+        toggleButtonCommand.execute(btnViewOrders);
+
+        // Reload the tables
+        ReloadTablesCommand reloadTablesCommand = new ReloadTablesCommand();
+        reloadTablesCommand.execute();
     }
 }

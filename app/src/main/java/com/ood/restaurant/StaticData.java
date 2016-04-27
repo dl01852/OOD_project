@@ -1,38 +1,24 @@
 package com.ood.restaurant;
 
-import com.ood.restaurant.Data.Bacon;
-import com.ood.restaurant.Data.BaconBits;
-import com.ood.restaurant.Data.Burger;
-import com.ood.restaurant.Data.Cheese;
-import com.ood.restaurant.Data.Decorator;
-import com.ood.restaurant.Data.Food;
-import com.ood.restaurant.Data.Lettuce;
-import com.ood.restaurant.Data.Menu;
-import com.ood.restaurant.Data.Mushrooms;
-import com.ood.restaurant.Data.Olives;
-import com.ood.restaurant.Data.Onions;
-import com.ood.restaurant.Data.Pepperoni;
-import com.ood.restaurant.Data.Pizza;
-import com.ood.restaurant.Data.Sausage;
-import com.ood.restaurant.Data.Tomatoes;
+import com.ood.restaurant.Data.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
- * Singleton pattern
+ * Singleton pattern to store table states
+ * @author Michael Palmer
  */
 public class StaticData {
 
     private static StaticData instance = null;
     private ArrayList<Boolean> tableList = new ArrayList<>();
     private List<Class> Menu = new ArrayList<>();
-    private HashMap<>
     public HashMap<Class, List<Decorator>> ItemsToDecorators = new HashMap<>();
 
     /**
-     * Private constructor
+     * Private constructor - initialize 15 available tables
      */
     private StaticData() {
         for (int i = 0; i < 15; i++) {
@@ -42,13 +28,8 @@ public class StaticData {
         addStuff();
     }
 
-//    public void addMenuItem(Food item)
-//    {
-//        Menu.add(item);
-//    }
-
     /**
-     * Get the singleton instance
+     * Get the singleton instance, creating a new instance if needed
      * @return Singleton instance
      */
     public static synchronized StaticData i() {
@@ -73,14 +54,13 @@ public class StaticData {
 
     private void addStuff()
     {
-        // LOL SUCH BAD CODE!
         // Condiments for a Burger.
         List<Decorator> burgerDecorators = new ArrayList<>();
         burgerDecorators.add(new Tomatoes());
         burgerDecorators.add(new Lettuce());
 //        burgerDecorators.add(new Onions());
 //        burgerDecorators.add(new Cheese());
-//        burgerDecorators.add(new Bacon());as
+//        burgerDecorators.add(new Bacon());
         ItemsToDecorators.put(Burger.class, burgerDecorators);
 
         // Condiments for a Pizza

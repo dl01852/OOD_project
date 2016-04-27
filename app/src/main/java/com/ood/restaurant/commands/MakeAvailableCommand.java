@@ -1,8 +1,6 @@
 package com.ood.restaurant.commands;
 
-import android.graphics.Color;
 import android.widget.Button;
-
 import com.ood.restaurant.StaticData;
 
 /**
@@ -10,20 +8,20 @@ import com.ood.restaurant.StaticData;
  */
 public class MakeAvailableCommand implements TableReceiver {
     @Override
-    public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder, int table) {
+    public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder,
+                        Button btnViewOrders, int table) {
+        // Set the table as available
         StaticData.i().tables().set(table, true);
-        toggleButton(btnSeatTable);
-        toggleButton(btnMakeAvailable);
-        toggleButton(btnAddOrder);
-        ReloadTablesCommand.execute();
-    }
 
-    private void toggleButton(Button button) {
-        if (button.isEnabled()) {
-            button.setTextColor(Color.GRAY);
-        } else {
-            button.setTextColor(Color.WHITE);
-        }
-        button.setEnabled(!button.isEnabled());
+        // Toggle the button states
+        ToggleButtonCommand toggleButtonCommand = new ToggleButtonCommand();
+        toggleButtonCommand.execute(btnSeatTable);
+        toggleButtonCommand.execute(btnMakeAvailable);
+        toggleButtonCommand.execute(btnAddOrder);
+        toggleButtonCommand.execute(btnViewOrders);
+
+        // Reload the tables
+        ReloadTablesCommand reloadTablesCommand = new ReloadTablesCommand();
+        reloadTablesCommand.execute();
     }
 }

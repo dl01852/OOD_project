@@ -12,6 +12,7 @@ Android 5.0.1 (Lollipop) and later (API 21+)
 - [x] Merge code together
 - [ ] Unit tests?
 - [ ] Use cases
+- [ ] Black box / white box testing
 - [ ] UML diagrams
 - [ ] Project goals
 - [ ] How to use the app

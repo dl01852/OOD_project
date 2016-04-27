@@ -15,6 +15,7 @@ public class Lettuce extends Decorator
     Food burger;
     String name = "Lettuce";
     double cost = 0;
+    String decoratorDescription = "fresh lettuce";
 
     public Lettuce(Food burgerToOrder)
     {
@@ -40,12 +41,16 @@ public class Lettuce extends Decorator
     {
         return cost;
     }
+    public String getDecoratorDescription()
+    {
+        return decoratorDescription;
+    }
 
     @Override
     public double cost()
     {
 
-        return burger.cost() + 0;
+        return burger.cost() + cost;
         // get the cost from the burger object and then add on the cost for lettuce(if there is a cost) and return that value.
         // (don't return 0)
     }

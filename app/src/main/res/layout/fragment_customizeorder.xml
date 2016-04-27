@@ -11,6 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
+            android:id="@+id/card_test"
             card_view:contentPadding="10dp"
             card_view:cardUseCompatPadding="true"
             card_view:cardCornerRadius="4dp"
@@ -38,13 +39,13 @@
                     android:text="Description of topping"
                     android:layout_below="@id/txtTopping"
                     android:id="@+id/txtToppingDescription"/>
-            <Button
+            <CheckBox
                     android:layout_width="60dp"
                     android:layout_height="35dp"
                     android:text="ADD"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/txtToppingPrice"
-                    android:id="@+id/btnAdd"
+                    android:id="@+id/chk_add"
             />
 
             <TextView
@@ -52,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:text="Price"
                     android:layout_alignParentRight="true"
-                    android:layout_alignStart="@id/btnAdd"
+                    android:layout_alignStart="@id/chk_add"
                     android:id="@+id/txtToppingPrice"
             />
 
