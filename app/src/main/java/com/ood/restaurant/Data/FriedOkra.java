@@ -45,6 +45,6 @@ public class FriedOkra extends Decorator
 
     @Override
     public String orderMessage() {
-        return "Frid Okra Added...";
+        return "Fried Okra Added...";
     }
 }
