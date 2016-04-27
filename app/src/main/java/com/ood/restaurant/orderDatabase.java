@@ -18,6 +18,7 @@ public class orderDatabase extends SQLiteOpenHelper {
     public static final String ORDER_ID = "id";
     public static final String ORDER = "description";
     public static final String TABLE_ID ="tableID";
+    public static final int DATABASE_VERSION = 2;
 
     private int id;
     private String orderDescription;
@@ -25,7 +26,7 @@ public class orderDatabase extends SQLiteOpenHelper {
 
     public orderDatabase(Context context)
     {
-        super(context,DATABASE_NAME,null,1);
+        super(context,DATABASE_NAME,null,DATABASE_VERSION);
     }
 
     @Override
