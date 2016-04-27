@@ -102,16 +102,17 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
             }
 
             // Get the description
-            String title = food.getDescription();
+            String foodDescription = food.getDescription();
 
             // Close the dialog and show a toast
             MenuFragment.customizeOrderFragment.dismiss();
 
-            Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), foodDescription +"\nCost: $" + food.cost(), Toast.LENGTH_SHORT).show();
 
             // Add to database
             Order order = new Order();
             order.setOrderDescription(food.getDescription());
+            order.setCost(food.cost());
             myDB.insertOrder(order, AddOrderCommand.table);
         } catch (ClassNotFoundException | IllegalAccessException | InvocationTargetException |
                 NoSuchMethodException | java.lang.InstantiationException e) {

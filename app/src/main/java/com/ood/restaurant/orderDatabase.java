@@ -20,10 +20,12 @@ public class orderDatabase extends SQLiteOpenHelper {
     public static final String ORDER_ID = "id";
     public static final String ORDER = "description";
     public static final String TABLE_ID ="tableID";
-    public static final int DATABASE_VERSION = 2;
+    public static final String ORDER_COST = "cost";
+    public static final int DATABASE_VERSION = 3;
 
     private int id;
     private String orderDescription;
+    private double cost;
 
 
     public orderDatabase(Context context)
@@ -39,7 +41,8 @@ public class orderDatabase extends SQLiteOpenHelper {
                 "(" +
                 String.format("%s INTEGER PRIMARY KEY,\n", ORDER_ID) +
                 String.format("%s text,\n", ORDER) +
-                String.format("%s INTEGER\n",TABLE_ID) +
+                String.format("%s INTEGER,\n",TABLE_ID) +
+                String.format("%s DECIMAL(3,2)\n",ORDER_COST) +
                 ")";
 
         db.execSQL(query);
@@ -61,6 +64,7 @@ public class orderDatabase extends SQLiteOpenHelper {
 
         contentValues.put(ORDER,order.getOrderDescription());
         contentValues.put(TABLE_ID,TableID);
+        contentValues.put(ORDER_COST,order.getCost());
         db.insert(TABLE_NAME,null,contentValues);
         db.close();
 
@@ -86,10 +90,11 @@ public class orderDatabase extends SQLiteOpenHelper {
         if (cursorData.moveToFirst()) {
             this.id = cursorData.getInt(cursorData.getColumnIndex(ORDER_ID));
             this.orderDescription = cursorData.getString(cursorData.getColumnIndex(ORDER));
+            this.cost = cursorData.getDouble(cursorData.getColumnIndex(ORDER_COST));
             cursorData.close();
 
 
-            order = new Order(id, orderDescription);
+            order = new Order(id, orderDescription,cost);
             db.close();
             return order;
         } else
@@ -116,9 +121,10 @@ public class orderDatabase extends SQLiteOpenHelper {
                 // Save data from the query
                 int orderId = cursor.getInt(cursor.getColumnIndex(ORDER_ID));
                 String description = cursor.getString(cursor.getColumnIndex(ORDER));
+                double cost = cursor.getDouble(cursor.getColumnIndex(ORDER_COST));
 
                 // Create a new Order object and add it to the ArrayList
-                Order order = new Order(orderId, description);
+                Order order = new Order(orderId, description,cost);
                 orders.add(order);
             } while (cursor.moveToNext());
         }
