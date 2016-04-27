@@ -97,7 +97,7 @@ public class orderDatabase extends SQLiteOpenHelper {
     public Integer deleteOrder(Order order)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME,"WHERE id = ?",new String[]{Integer.toString(order.getId())});
+        return db.delete(TABLE_NAME,"tableID = " + order.getId(), null);
     }
 
     public void deleteAllOrders()

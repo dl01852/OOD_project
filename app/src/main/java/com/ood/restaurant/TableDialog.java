@@ -65,13 +65,13 @@ public class TableDialog extends DialogFragment implements View.OnClickListener 
             case R.id.btn_seat_table:
                 // Seat Table button was clicked - execute the SeatTableCommand
                 seatCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder,
-                        btnViewOrders, table);
+                        btnViewOrders, table, this);
                 break;
 
             case R.id.btn_make_available:
                 // Make Available button was clicked - execute the MakeAvailableCommand
                 makeAvailableCommand.execute(btnSeatTable, btnMakeAvailable, btnAddOrder,
-                        btnViewOrders, table);
+                        btnViewOrders, table, this);
                 break;
 
             case R.id.btn_add_order:
