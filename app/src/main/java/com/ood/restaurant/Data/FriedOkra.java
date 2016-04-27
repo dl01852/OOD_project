@@ -41,4 +41,9 @@ public class FriedOkra extends Decorator
     {
         return friedChicken.cost();
     }
+
+    @Override
+    public String orderMessage() {
+        return "Frid Okra Added...";
+    }
 }

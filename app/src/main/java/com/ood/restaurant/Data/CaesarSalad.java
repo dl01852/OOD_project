@@ -16,4 +16,9 @@ public class CaesarSalad extends Food
         cost = 4.99;
         return cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Caesar Salad Added...";
+    }
 }

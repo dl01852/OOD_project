@@ -37,4 +37,9 @@ public class Sausage extends PizzaDecorator
     {
         return pizza.cost() + cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Sausage Added...";
+    }
 }

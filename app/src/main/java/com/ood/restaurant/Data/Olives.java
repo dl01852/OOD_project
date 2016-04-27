@@ -42,4 +42,9 @@ public class Olives extends PizzaDecorator
     {
         return pizza.cost() + cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Olives Added...";
+    }
 }

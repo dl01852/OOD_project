@@ -17,4 +17,9 @@ public class FriedChicken extends Food
         cost = 10.99;
         return cost;
     }
+
+    @Override
+    public String orderMessage() {
+        return "Fried Chicken Added...";
+    }
 }

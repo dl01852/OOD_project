@@ -42,4 +42,9 @@ public class MacnCheese extends Decorator
     {
         return friedChicken.cost();
     }
+
+    @Override
+    public String orderMessage() {
+        return "Mac n Cheese Added...";
+    }
 }
