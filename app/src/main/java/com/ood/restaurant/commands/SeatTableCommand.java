@@ -8,7 +8,8 @@ import android.widget.Button;
  */
 public class SeatTableCommand implements TableReceiver{
     @Override
-    public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder, int table) {
+    public void execute(Button btnSeatTable, Button btnMakeAvailable, Button btnAddOrder,
+                        Button btnViewOrders, int table) {
         // Set the table as seated
         StaticData.i().tables().set(table, false);
 
@@ -17,6 +18,7 @@ public class SeatTableCommand implements TableReceiver{
         toggleButtonCommand.execute(btnSeatTable);
         toggleButtonCommand.execute(btnMakeAvailable);
         toggleButtonCommand.execute(btnAddOrder);
+        toggleButtonCommand.execute(btnViewOrders);
 
         // Reload the tables
         ReloadTablesCommand reloadTablesCommand = new ReloadTablesCommand();

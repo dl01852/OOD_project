@@ -18,7 +18,7 @@ public class Burger extends Food
     @Override
     public double cost()
     {
-        cost = 10.99;
+        cost = 5.99;
         // set the cost, any price. idc
         // then return the cost.
         return cost;

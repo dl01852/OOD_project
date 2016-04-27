@@ -6,4 +6,6 @@
     <string name="seat_table">Seat Table</string>
     <string name="make_available">Make Available</string>
     <string name="add_order">Add Order</string>
+    <string name="view_orders">View Orders</string>
+    <string name="item_price">$%.2f</string>
 </resources>
