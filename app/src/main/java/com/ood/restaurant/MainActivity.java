@@ -14,8 +14,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context = this;
+
+        // Initialize database and clear it
         myDB = new orderDatabase(this);
+        myDB.deleteAllOrders();
+
+        // Save context
+        context = this;
+
         // Set the layout
         setContentView(R.layout.activity_main);
 
@@ -28,12 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.fragment_layout, new TableFragment())
                 .commit();
-    }
-    @Override
-    protected void onDestroy()
-    {
-        super.onDestroy();
-        myDB.deleteAllOrders();
     }
 
 }
