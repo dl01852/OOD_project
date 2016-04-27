@@ -106,6 +106,10 @@ public class StaticData {
     {
         this.Menu.add(Burger.class);
         this.Menu.add(Pizza.class);
+        this.Menu.add(CaesarSalad.class);
+        this.Menu.add(HouseSalad.class);
+        this.Menu.add(BBQRibs.class);
+        this.Menu.add(FriedChicken.class);
     }
 
 
