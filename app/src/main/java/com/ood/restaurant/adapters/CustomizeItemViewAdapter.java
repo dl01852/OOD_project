@@ -1,4 +1,4 @@
-package com.ood.restaurant.fragments;
+package com.ood.restaurant.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ood.restaurant.Listeners;
 import com.ood.restaurant.MainActivity;
 import com.ood.restaurant.MenuItemData;
 import com.ood.restaurant.R;
@@ -18,7 +17,7 @@ import java.util.List;
 /**
  * Created by david-lewis on 4/24/2016.
  */
-public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
+public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     private LayoutInflater inflater;
     List<MenuItemData> decorators = Collections.emptyList();
@@ -29,14 +28,14 @@ public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
     }
 
     @Override
-    public MyHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
         View view = inflater.inflate(R.layout.fragment_customizeorder,parent,false);
-        return new MyHolder(view);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, int position)
+    public void onBindViewHolder(MyViewHolder holder, int position)
     {
         final MenuItemData currentDecorator = decorators.get(position);
         holder.setDecorator_Name(currentDecorator.itemName);
@@ -51,9 +50,7 @@ public class CustomizeItemViewAdapter extends RecyclerView.Adapter<MyHolder> {
     }
 }
 
-
-
-class MyHolder extends RecyclerView.ViewHolder
+class MyViewHolder extends RecyclerView.ViewHolder
 {
     private TextView decorator_Name;
     private TextView decorator_price;
@@ -61,7 +58,7 @@ class MyHolder extends RecyclerView.ViewHolder
     private View view;
 
 
-    public MyHolder(View itemView)
+    public MyViewHolder(View itemView)
     {
         super(itemView);
         decorator_Name = (TextView) itemView.findViewById(R.id.txtTopping);

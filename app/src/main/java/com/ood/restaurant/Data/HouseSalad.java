@@ -17,9 +17,4 @@ public class HouseSalad extends Food
 
         return cost;
     }
-
-    @Override
-    public String orderMessage() {
-        return "House Salad Added...";
-    }
 }

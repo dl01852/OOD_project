@@ -19,7 +19,7 @@ public class FriedOkra extends Decorator
     @Override
     public String getDescription()
     {
-        return friedChicken.getDescription() + " with fried okra ";
+        return friedChicken.getDescription() + " with fried okra";
     }
 
     public String getName()
@@ -41,10 +41,5 @@ public class FriedOkra extends Decorator
     public double cost()
     {
         return friedChicken.cost();
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Fried Okra Added...";
     }
 }

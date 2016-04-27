@@ -67,7 +67,6 @@ public class StaticData {
         List<Decorator> pizzaDecorators = new ArrayList<>();
         pizzaDecorators.add(new Pepperoni());
         pizzaDecorators.add(new Cheese());
-//        pizzaDecorators.add(new Olives());
         pizzaDecorators.add(new Sausage());
         pizzaDecorators.add(new Mushrooms());
         pizzaDecorators.add(new BaconBits());
@@ -82,6 +81,7 @@ public class StaticData {
 
         // Condiments for bbq ribs
         List<Decorator> bbqRibsDecorator = new ArrayList<>();
+        bbqRibsDecorator.add(new BBQSauce());
         bbqRibsDecorator.add(new Coleslaw());
         bbqRibsDecorator.add(new TexasToast());
         bbqRibsDecorator.add(new MacnCheese());
@@ -118,11 +118,7 @@ public class StaticData {
 
     public HashMap<Class,List<Decorator>> getStuff()
     {
-
         return ItemsToDecorators;
     }
 
-
-
 }
-

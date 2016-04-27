@@ -20,7 +20,7 @@ public class MacnCheese extends Decorator
     @Override
     public String getDescription()
     {
-        return friedChicken.getDescription() + " with Mac & Cheese ";
+        return friedChicken.getDescription() + " with Mac & Cheese";
     }
 
     public String getName()
@@ -41,10 +41,5 @@ public class MacnCheese extends Decorator
     public double cost()
     {
         return friedChicken.cost();
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Mac n Cheese Added...";
     }
 }

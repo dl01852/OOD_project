@@ -44,9 +44,4 @@ public class BBQSauce extends Decorator
     {
         return ribs.cost() + cost;
     }
-
-    @Override
-    public String orderMessage() {
-        return "BBQ Sauce Added...";
-    }
 }

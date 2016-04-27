@@ -44,9 +44,4 @@ public class ItalianDressing extends Decorator
     {
         return salad.cost() + cost;
     }
-
-    @Override
-    public String orderMessage() {
-        return "Italian Dressing Added...";
-    }
 }

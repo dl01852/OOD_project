@@ -21,7 +21,7 @@ public class FrenchFries extends Decorator
     public String getDescription()
     {
 
-        return burger.getDescription() + " and with a side of French Fries ";
+        return burger.getDescription() + " and with a side of French Fries";
     }
 
     public String getName()
@@ -42,10 +42,5 @@ public class FrenchFries extends Decorator
     public double cost()
     {
         return burger.cost();
-    }
-
-    @Override
-    public String orderMessage() {
-        return "French Fries Added...";
     }
 }

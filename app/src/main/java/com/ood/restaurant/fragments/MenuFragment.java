@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ood.restaurant.CustomizeOrderFragment;
 import com.ood.restaurant.Listeners;
 import com.ood.restaurant.MenuItemData;
-import com.ood.restaurant.MenuItemViewAdapter;
+import com.ood.restaurant.adapters.MenuItemViewAdapter;
 import com.ood.restaurant.R;
 import com.ood.restaurant.StaticData;
 

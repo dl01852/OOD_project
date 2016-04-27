@@ -19,7 +19,7 @@ public class Coleslaw extends Decorator
     @Override
     public String getDescription()
     {
-        return ribs.getDescription() + " with coleslaw ";
+        return ribs.getDescription() + " with coleslaw";
     }
 
     public String getName()
@@ -41,10 +41,5 @@ public class Coleslaw extends Decorator
     public double cost()
     {
         return ribs.cost();
-    }
-
-    @Override
-    public String orderMessage() {
-        return "Coleslaw Added...";
     }
 }
