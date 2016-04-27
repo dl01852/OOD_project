@@ -50,7 +50,8 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
                 MenuItemData tempData = new MenuItemData();
                 tempData.itemName = (String) d.getClass().getMethod("getName", (Class[]) null)
                         .invoke(d, (Object[]) null);
-                tempData.itemDescription = tempData.itemName;
+                tempData.itemDescription = (String)d.getClass().getMethod("getDecoratorDescription", (Class[]) null)
+                        .invoke(d, (Object[]) null);
                 tempData.itemPrice = (Double) d.getClass().getMethod("getCost", (Class[]) null)
                         .invoke(d, (Object[]) null);
                 data.add(tempData);
