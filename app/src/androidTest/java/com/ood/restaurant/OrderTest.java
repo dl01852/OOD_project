@@ -25,4 +25,10 @@ public class OrderTest extends AndroidTestCase {
         order.setFood(burger);
         assertEquals(order.getFood(), burger);
     }
+
+    public void testCost() throws Exception {
+        Order order = new Order();
+        order.setCost(5.99);
+        assertEquals(order.getCost(), 5.99);
+    }
 }
