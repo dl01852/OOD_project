@@ -20,13 +20,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by david-lewis on 4/5/2016.
+ * Menu Fragment
+ * @author David Lewis
  */
 public class MenuFragment extends Fragment implements Listeners.OnCustomizeListener {
 
     public static CustomizeOrderFragment customizeOrderFragment;
     static StaticData staticData = StaticData.i(); // grab an instance of the data.
 
+    /**
+     * Create the view
+     * @param inflater Layout inflater
+     * @param container View group
+     * @param savedInstanceState Bundle
+     * @return View
+     */
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.add_order, container, false);
@@ -38,7 +47,7 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
         recyclerView.setAdapter(menuAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        // Create the toolbar
+        // Setup the toolbar
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -65,22 +74,28 @@ public class MenuFragment extends Fragment implements Listeners.OnCustomizeListe
      * @return List of MenuItemData elements
      */
     public static List<MenuItemData> getMenuData() {
+        // Get menu items from StaticData
         List<Class> menu = staticData.getMenu();
         List<MenuItemData> data = new ArrayList<>();
 
         try {
+            // Loop through the menu items
             for (Class food : menu) {
                 MenuItemData tempData = new MenuItemData();
 
                 // Invoke the cost() method of the Food item and save the result
                 double cost = (Double) food.getMethod("cost", (Class[]) null)
                         .invoke(food.newInstance(), (Object[]) null);
+
                 // Invoke the getDescription() method of the Food item and save the result
                 String name = food.getMethod("getDescription", (Class[]) null)
                         .invoke(food.newInstance(), (Object[]) null).toString();
+
+                // Set the item's properties
                 tempData.itemDescription = name;
                 tempData.itemName = name.trim();
                 tempData.itemPrice = cost;
+
                 // Add item to the list
                 data.add(tempData);
             }

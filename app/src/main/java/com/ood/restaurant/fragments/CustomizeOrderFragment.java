@@ -23,12 +23,22 @@ import com.ood.restaurant.orderDatabase;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
+/**
+ * Fragment for customizing orders
+ */
 public class CustomizeOrderFragment extends DialogFragment implements View.OnClickListener {
     private RecyclerView recyclerView;
     String itemName;
     StaticData sData = StaticData.i();
     orderDatabase myDB = MainActivity.myDB;
 
+    /**
+     * Create the view
+     * @param inflater Layout inflater
+     * @param container View group
+     * @param savedInstanceState Bundle
+     * @return View
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Set the dialog title
@@ -49,14 +59,22 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
         return layout;
     }
 
+    /**
+     * Create the fragment
+     * @param savedInstanceState Bundle
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setMenuVisibility(true);
     }
 
-    // grabs all Decorators for a particular Food item and and converts them to MenuItemData objects to display to the gui
+    /**
+     * Grabs all Decorators for a particular Food item and and converts
+     * them to MenuItemData objects to display in the GUI
+     * @param itemName Item name
+     * @return List of MenuItemData elements
+     */
     public List<MenuItemData> converToMenuItem(String itemName) {
         List<MenuItemData> data = new ArrayList<>();
         // Need to use the full path to the class
@@ -91,6 +109,10 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
         return data;
     }
 
+    /**
+     * Handle on click events
+     * @param v View that triggered the event
+     */
     @Override
     public void onClick(View v) {
         try {
@@ -98,9 +120,12 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
 
             // places all the decorators Name and whether or not if it is checked or not into a HashMap.
             for (int i = 0; i < recyclerView.getChildCount(); i++) {
+                // Initialize the layouts
                 CardView card = (CardView) ((LinearLayout) recyclerView.getChildAt(i)).getChildAt(0);
                 RelativeLayout layout = (RelativeLayout) card.getChildAt(0);
+                // Get the "Add" checkbox
                 CheckBox check = (CheckBox) layout.getChildAt(2);
+                // Get the topping name
                 TextView topping = (TextView) layout.getChildAt(0);
                 toppings.put(topping.getText().toString(), check.isChecked());
             }
@@ -119,10 +144,6 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
                     // passing the existing food class as a parameter to the constructor.
                     food = (Food) Class.forName("com.ood.restaurant.Data." + topping)
                             .getConstructor(Food.class).newInstance(new Food[]{food});
-
-                    //Class<?> food2 = Class.forName("com.ood.restaurant.Data." + topping);
-                    //Constructor<?> ctor = food2.getConstructor(Food.class);
-                    //Food object = (Food)ctor.newInstance(new Food[]{food2});
                 }
             }
 
