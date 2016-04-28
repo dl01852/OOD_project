@@ -2,6 +2,8 @@ package com.ood.restaurant.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import com.ood.restaurant.R;
 import com.ood.restaurant.StaticData;
 import com.ood.restaurant.TableDialog;
 import com.ood.restaurant.adapters.TableGridViewAdapter;
+
+import static com.ood.restaurant.R.id.toolbar;
 
 /**
  * Table Fragment
@@ -32,6 +36,12 @@ public class TableFragment extends Fragment implements AdapterView.OnItemClickLi
         // Set the adapter
         tableGrid.setAdapter(new TableGridViewAdapter(getActivity(),
                 R.layout.fragment_table, StaticData.i().tables()));
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
 
         // Assign the click listener
         tableGrid.setOnItemClickListener(this);
@@ -54,4 +64,6 @@ public class TableFragment extends Fragment implements AdapterView.OnItemClickLi
         // Show the dialog
         tableDialog.show(getActivity().getSupportFragmentManager(), "TableDialog");
     }
+
+
 }
