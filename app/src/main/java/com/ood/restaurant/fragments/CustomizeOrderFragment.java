@@ -2,7 +2,6 @@ package com.ood.restaurant.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,10 +18,8 @@ import com.ood.restaurant.R;
 import com.ood.restaurant.StaticData;
 import com.ood.restaurant.commands.AddOrderCommand;
 import com.ood.restaurant.adapters.CustomizeItemViewAdapter;
-import com.ood.restaurant.fragments.MenuFragment;
 import com.ood.restaurant.orderDatabase;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
@@ -34,15 +31,20 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Set the dialog title
         super.getDialog().setTitle(getArguments().getString("title")); // same as FoodName.
+        // Get the item name from the arguments passed in
         itemName = getArguments().getString("itemName"); // Food Name
+        // Inflate the layout
         View layout = inflater.inflate(R.layout.fragment_customizeorder_list, container, false);
+        // Create recycler view
         recyclerView = (RecyclerView) layout.findViewById(R.id.customize_list);
+        // Create the adapter and assign it to the recycler view
         CustomizeItemViewAdapter decoratorAdapter = new CustomizeItemViewAdapter(getActivity(),
                 converToMenuItem(itemName));
         recyclerView.setAdapter(decoratorAdapter);
+        // Set on click listener for the "Order" button
         Button button = (Button) layout.findViewById(R.id.btn_save_order);
-
         button.setOnClickListener(this);
         return layout;
     }
@@ -57,18 +59,27 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
     // grabs all Decorators for a particular Food item and and converts them to MenuItemData objects to display to the gui
     public List<MenuItemData> converToMenuItem(String itemName) {
         List<MenuItemData> data = new ArrayList<>();
-        String className = "com.ood.restaurant.Data." + itemName;
+        // Need to use the full path to the class
+        String className = "com.ood.restaurant.Data." + itemName.trim();
         try {
-            List<Decorator> getClass = sData.getStuff().get(Class.forName(className.trim()));
+            // Create class reference
+            List<Decorator> getClass = sData.getStuff().get(Class.forName(className));
 
             for (Decorator d : getClass) {
                 MenuItemData tempData = new MenuItemData();
-                tempData.itemName = (String) d.getClass().getMethod("getName", (Class[]) null)
+                // Invoke the item's getName() method
+                tempData.itemName = (String) d.getClass()
+                        .getMethod("getName", (Class[]) null)
                         .invoke(d, (Object[]) null);
-                tempData.itemDescription = (String) d.getClass().getMethod("getDecoratorDescription", (Class[]) null)
+                // Invoke the item's getDecoratorDescription() method
+                tempData.itemDescription = (String) d.getClass()
+                        .getMethod("getDecoratorDescription", (Class[]) null)
                         .invoke(d, (Object[]) null);
-                tempData.itemPrice = (Double) d.getClass().getMethod("getCost", (Class[]) null)
+                // Invoke the item's getCost() method
+                tempData.itemPrice = (Double) d.getClass()
+                        .getMethod("getCost", (Class[]) null)
                         .invoke(d, (Object[]) null);
+                // Add item to the list
                 data.add(tempData);
             }
 
@@ -104,7 +115,8 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
 
                 // If checkbox is selected
                 if (add) {
-                    // Decorate the menu item
+                    // Decorate the menu item. This creates a new instance of the specified class,
+                    // passing the existing food class as a parameter to the constructor.
                     food = (Food) Class.forName("com.ood.restaurant.Data." + topping)
                             .getConstructor(Food.class).newInstance(new Food[]{food});
 
@@ -117,11 +129,12 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
             // Get the description
             String foodDescription = food.getDescription();
 
-            // Close the dialog and show a toast
+            // Close the dialog
             MenuFragment.customizeOrderFragment.dismiss();
 
             // Display a message with the food description and the cost.
-            Toast.makeText(getContext(), foodDescription + "\nCost: $" + food.cost(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), foodDescription +
+                    "\nCost: $" + food.cost(), Toast.LENGTH_SHORT).show();
 
             // Create an order object and add it to the database.
             Order order = new Order();
