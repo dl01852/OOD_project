@@ -23,6 +23,13 @@ public class TableFragment extends Fragment implements AdapterView.OnItemClickLi
 
     public static GridView tableGrid;
 
+    /**
+     * Create the view
+     * @param inflater Layout inflater
+     * @param container View group
+     * @param savedInstance Bundle
+     * @return View
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
         // Inflate the fragment
