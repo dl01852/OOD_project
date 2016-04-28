@@ -13,16 +13,8 @@
 ### Supported Versions
 Android 5.0.1 (Lollipop) and later (API 21+)
 
-### To Do:
-- [x] Merge code together
-- [x] Unit tests
-- [x] Use cases
-- [x] Black box / white box testing
-- [x] UML diagrams
-- [x] Project goals
-- [x] How to use the app
-- [ ] Project report
-- [x] Presentation
+### Sequence Diagram
+![](resources/sequence.png)
 
 [tbls]: resources/tables.png
 [tdets]: resources/tables_dialog.png
