@@ -12,6 +12,6 @@ public class Listeners {
          * Handle click events by the Customize button
          * @param itemName Item to be customized
          */
-        void onCustomizeClicked(String itemName);
+        void onCustomizeClicked(String itemName); // itemName is the Menu Item name(i.e Burger, Pizza, etc..)
     }
 }

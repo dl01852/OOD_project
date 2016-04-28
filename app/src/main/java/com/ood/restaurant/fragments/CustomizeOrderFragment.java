@@ -63,7 +63,7 @@ public class CustomizeOrderFragment extends DialogFragment implements View.OnCli
         String className = "com.ood.restaurant.Data." + itemName.trim();
         try {
             // Create class reference
-            List<Decorator> getClass = sData.getStuff().get(Class.forName(className));
+            List<Decorator> getClass = sData.getItemDecorators().get(Class.forName(className));
 
             for (Decorator d : getClass) {
                 MenuItemData tempData = new MenuItemData();

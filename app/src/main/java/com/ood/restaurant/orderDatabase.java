@@ -15,6 +15,7 @@ import java.util.ArrayList;
  */
 public class orderDatabase extends SQLiteOpenHelper {
 
+    // fields for the DB name, tables and the column.s
     public static final String DATABASE_NAME = "Restaurant.db";
     public static final String TABLE_NAME = "orders";
     public static final String ORDER_ID = "id";
@@ -23,6 +24,7 @@ public class orderDatabase extends SQLiteOpenHelper {
     public static final String ORDER_COST = "cost";
     public static final int DATABASE_VERSION = 3;
 
+    // data fields needed to populate an Order object.
     private int id;
     private String orderDescription;
     private double cost;
@@ -70,18 +72,6 @@ public class orderDatabase extends SQLiteOpenHelper {
 
         return true;
     }
-
-    public boolean updateOrder(Order order)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(ORDER,order.getOrderDescription());
-
-        db.update(TABLE_NAME,contentValues,"id = ?",new String[]{Integer.toString(order.getId())});
-        return true;
-    }
-
     public Order getOrder(int id) {
         Order order; // order to be returned.
         SQLiteDatabase db = this.getReadableDatabase();
@@ -134,13 +124,13 @@ public class orderDatabase extends SQLiteOpenHelper {
         return orders;
     }
 
-    public Integer deleteOrder(Order order)
+    public Integer deleteOrder(Order order)// delete an order from the DB
     {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME,"tableID = " + order.getId(), null);
     }
 
-    public void deleteAllOrders()
+    public void deleteAllOrders() // deletes All orders from DB.
     {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(String.format("SELECT * FROM %s",TABLE_NAME),null);

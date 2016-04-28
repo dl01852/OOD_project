@@ -18,14 +18,14 @@ public class StaticData {
     public HashMap<Class, List<Decorator>> ItemsToDecorators = new HashMap<>();
 
     /**
-     * Private constructor - initialize 15 available tables
+     * Private constructor - initialize 15 available tables, populates the menu, and add decorators.
      */
     private StaticData() {
         for (int i = 0; i < 15; i++) {
             tableList.add(true);
         }
         populateMenu();
-        addStuff();
+        addDecorators();
     }
 
     /**
@@ -52,7 +52,7 @@ public class StaticData {
         return this.Menu;
     }
 
-    private void addStuff()
+    private void addDecorators()
     {
         // Condiments for a Burger.
         List<Decorator> burgerDecorators = new ArrayList<>();
@@ -116,7 +116,8 @@ public class StaticData {
     }
 
 
-    public HashMap<Class,List<Decorator>> getStuff()
+
+    public HashMap<Class,List<Decorator>> getItemDecorators()
     {
         return ItemsToDecorators;
     }
