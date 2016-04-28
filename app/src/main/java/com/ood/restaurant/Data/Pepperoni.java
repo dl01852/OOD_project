@@ -1,6 +1,9 @@
 package com.ood.restaurant.Data;
+
 /**
- * Created by Nicholas on 4/16/2016.
+ * This class provides the methods needed to decorate the pizza object of type with a Pepperoni object
+ *
+ * @author Nicholas Lilly
  */
 public class Pepperoni extends Decorator
 {
@@ -26,12 +29,15 @@ public class Pepperoni extends Decorator
     {
         return decoratorDescription;
     }
+
+    // gets the description from the pizza object and then adds on the description from this class
     @Override
     public String getDescription()
     {
         return pizza.getDescription() + " with Pepperoni";
     }
 
+    // gets the cost from the pizza object and then adds on the cost for pepperoni(if there is a cost) and returns that value.
     @Override
     public double cost()
     {

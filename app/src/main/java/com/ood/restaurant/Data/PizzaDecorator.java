@@ -1,7 +1,7 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by Nicholas on 4/18/2016.
+ * @author Nicholas Lilly
  */
 public abstract class PizzaDecorator extends Food
 {

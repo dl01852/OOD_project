@@ -1,7 +1,9 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by Nicholas on 4/26/2016.
+ * This class provides the methods needed to decorate the BBQRibs object of type with a TexasToast object
+ *
+ * @author Nicholas Lilly
  */
 public class TexasToast extends Decorator
 {
@@ -17,6 +19,7 @@ public class TexasToast extends Decorator
 
     public TexasToast(){}
 
+    // gets the description from the BBQRibs object and then adds on the description from this class
     @Override
     public String getDescription()
     {
@@ -38,6 +41,7 @@ public class TexasToast extends Decorator
         return decoratorDescription;
     }
 
+    // gets the cost from the BBQRibs object and then adds on the cost for TexasToast(if there is a cost) and returns that value.
     @Override
     public double cost()
     {

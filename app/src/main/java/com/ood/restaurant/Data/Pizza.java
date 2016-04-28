@@ -1,6 +1,8 @@
 package com.ood.restaurant.Data;
+
 /**
- * Created by Nicholas on 4/16/2016.
+ *
+ * @author Nicholas Lilly
  */
 public class Pizza extends Food
 {

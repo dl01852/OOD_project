@@ -1,7 +1,9 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by Nicholas on 4/26/2016.
+ * This class provides the methods needed to decorate the FriedChicken object of type with a CollardGreens object
+ *
+ * @author Nicholas Lilly
  */
 public class CollardGreens extends Decorator
 {
@@ -17,6 +19,7 @@ public class CollardGreens extends Decorator
 
     public CollardGreens(){}
 
+    // gets the description from the FriedChicken object and then adds on the description from this class
     public String getDescription()
     {
 
@@ -38,8 +41,9 @@ public class CollardGreens extends Decorator
         return decoratorDescription;
     }
 
+    // gets the cost from the FriedChicken object and then adds on the cost for CollardGreens(if there is a cost) and returns that value.
     public double cost()
     {
-        return friedChicken.cost();
+        return friedChicken.cost() + cost;
     }
 }

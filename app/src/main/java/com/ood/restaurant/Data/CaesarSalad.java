@@ -1,7 +1,8 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by Nicholas on 4/26/2016.
+ *
+ * @author Nicholas Lilly
  */
 public class CaesarSalad extends Food
 {
