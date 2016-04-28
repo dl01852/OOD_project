@@ -1,0 +1,30 @@
+@startuml
+
+-> Customer: Start order
+Customer -> MenuFragment: Open menu
+MenuFragment -> StaticData: Request menu items
+StaticData --> MenuFragment: Return menu items
+Customer -> MenuFragment: Select menu item
+MenuFragment -> CustomizeOrderFragment: Open toppings dialog
+CustomizeOrderFragment -> StaticData: Request toppings
+StaticData --> CustomizeOrderFragment: Return toppings
+Customer -> CustomizeOrderFragment: Select toppings
+CustomizeOrderFragment -> orderDatabase: Insert order
+CustomizeOrderFragment --> Customer: Display order summary
+Customer -> ViewOrderDialog: View orders for table N
+ViewOrderDialog -> orderDatabase: Select orders for table N
+orderDatabase --> ViewOrderDialog: Return orders
+Customer <-- ViewOrderDialog: Display all orders for table N
+
+
+'Customer -> Menu: Select menu item
+'Customer <-- Menu: Display available toppings
+'Customer -> Menu: Select toppings
+'Customer <-- Menu: Display order summary
+'Customer -> "Order System": Submit order
+'"Order System" -> Kitchen: Send order
+'Customer <-- Kitchen: Deliver order
+'Customer -> "Order System": Retrieve orders for the table
+'Customer <-- "Order System": Show all orders for the table
+
+@enduml
