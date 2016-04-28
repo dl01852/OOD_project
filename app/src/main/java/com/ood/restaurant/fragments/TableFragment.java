@@ -15,8 +15,6 @@ import com.ood.restaurant.StaticData;
 import com.ood.restaurant.TableDialog;
 import com.ood.restaurant.adapters.TableGridViewAdapter;
 
-import static com.ood.restaurant.R.id.toolbar;
-
 /**
  * Table Fragment
  * @author Michael Palmer
