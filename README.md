@@ -16,6 +16,9 @@ Android 5.0.1 (Lollipop) and later (API 21+)
 ### Sequence Diagram
 ![](resources/sequence.png)
 
+### Unit Tests
+![](resources/tests.png)
+
 [tbls]: resources/tables.png
 [tdets]: resources/tables_dialog.png
 [menu]: resources/menu.png
