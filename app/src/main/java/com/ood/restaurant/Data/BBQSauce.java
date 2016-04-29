@@ -1,7 +1,9 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by Nicholas on 4/26/2016.
+ * This class provides the methods needed to decorate the BBQRibs object of type with a BBQSauce object
+ *
+ * @author Nicholas Lilly
  */
 public class BBQSauce extends Decorator
 {
@@ -17,7 +19,7 @@ public class BBQSauce extends Decorator
 
     public BBQSauce(){}
 
-
+    // gets the description from the BBQRibs object and then adds on the description from this class
     public String getDescription()
     {
 
@@ -39,7 +41,7 @@ public class BBQSauce extends Decorator
         return decoratorDescription;
     }
 
-
+    // gets the cost from the BBQRibs object and then adds on the cost for BBQSauce(if there is a cost) and returns that value.
     public double cost()
     {
         return ribs.cost() + cost;

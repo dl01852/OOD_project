@@ -1,7 +1,7 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by david-lewis on 3/28/2016.
+ * @author  David Lewis
  */
 public abstract class Decorator extends Food
 {

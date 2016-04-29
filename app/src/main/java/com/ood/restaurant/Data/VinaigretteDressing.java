@@ -1,7 +1,9 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by Nicholas on 4/26/2016.
+ * This class provides the methods needed to decorate the salad object of type with a VinaigretteDressing object
+ *
+ * @author Nicholas Lilly
  */
 public class VinaigretteDressing extends Decorator
 {
@@ -17,6 +19,7 @@ public class VinaigretteDressing extends Decorator
 
     public VinaigretteDressing(){}
 
+    // gets the description from the salad object and then adds on the description from this class
     @Override
     public String getDescription()
     {
@@ -39,6 +42,7 @@ public class VinaigretteDressing extends Decorator
         return decoratorDescription;
     }
 
+    // gets the cost from the salad object and then adds on the cost for VinaigretteDressing(if there is a cost) and returns that value.
     @Override
     public double cost()
     {

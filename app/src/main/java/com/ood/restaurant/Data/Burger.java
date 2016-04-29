@@ -1,10 +1,9 @@
 package com.ood.restaurant.Data;
-/**
- * Created by david-lewis on 3/28/2016.
- *
- * Burger class, is the component of the abstract Beverage class.
- */
 
+/**
+ *
+ * @author Nicholas Lilly
+ */
 public class Burger extends Food
 {
 
@@ -19,8 +18,6 @@ public class Burger extends Food
     public double cost()
     {
         cost = 5.99;
-        // set the cost, any price. idc
-        // then return the cost.
         return cost;
     }
 }

@@ -1,6 +1,8 @@
 package com.ood.restaurant.Data;
 /**
- * Created by Nicholas on 4/16/2016.
+ * This class provides the methods needed to decorate the pizza object of type with a BaconBits object
+ *
+ * @author Nicholas Lilly
  */
 public class BaconBits extends Decorator
 {
@@ -16,6 +18,7 @@ public class BaconBits extends Decorator
 
     public BaconBits(){}
 
+    // gets the description from the pizza object and then adds on the description from this class
     @Override
     public String getDescription()
     {
@@ -37,6 +40,7 @@ public class BaconBits extends Decorator
         return decoratorDescription;
     }
 
+    // gets the cost from the pizza object and then adds on the cost for BaconBits(if there is a cost) and returns that value
     @Override
     public double cost()
     {

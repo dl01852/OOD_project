@@ -1,6 +1,9 @@
 package com.ood.restaurant.Data;
+
 /**
- * Created by Nicholas on 4/16/2016.
+ * This class provides the methods needed to decorate the burger object of type with a onions object
+ *
+ * @author Nicholas Lilly
  */
 public class Onions extends Decorator
 {
@@ -16,14 +19,12 @@ public class Onions extends Decorator
 
     public Onions(){}
 
+    // gets the description from the burger object and then adds on the description from this class
     @Override
     public String getDescription()
     {
 
         return burger.getDescription() + " with onions";
-        // get the description from the burger object and then add on the description from this class
-        // soo for this particular class, the description you'd add is  ' with lettuce'
-        // then return that(don't return null).
     }
 
     public String getName()
@@ -41,11 +42,10 @@ public class Onions extends Decorator
         return decoratorDescription;
     }
 
+    // gets the cost from the burger object and then adds on the cost for onions(if there is a cost) and returns that value.
     @Override
     public double cost()
     {
         return burger.cost() + cost;
-        // get the cost from the burger object and then add on the cost for lettuce(if there is a cost) and return that value.
-        // (don't return 0)
     }
 }

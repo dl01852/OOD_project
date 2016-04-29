@@ -1,8 +1,8 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by david-lewis on 3/28/2016.
- * Decorator Pattern for "decorating" any food item(if it needs to be decorated)..
+ * The parent class for all the menu items
+ * @author Nicholas Lilly
  */
 public abstract class Food
 {

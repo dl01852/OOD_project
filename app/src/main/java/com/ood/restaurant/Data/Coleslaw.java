@@ -1,7 +1,9 @@
 package com.ood.restaurant.Data;
 
 /**
- * Created by Nicholas on 4/26/2016.
+ * This class provides the methods needed to decorate the BBQRibs object of type with a Coleslaw object
+ *
+ * @author Nicholas Lilly
  */
 public class Coleslaw extends Decorator
 {
@@ -16,6 +18,7 @@ public class Coleslaw extends Decorator
     }
     public Coleslaw(){}
 
+    // gets the description from the BBQRibs object and then adds on the description from this class
     @Override
     public String getDescription()
     {
@@ -37,9 +40,10 @@ public class Coleslaw extends Decorator
         return decoratorDescription;
     }
 
+    // gets the cost from the BBQRibs object and then adds on the cost for Coleslaw(if there is a cost) and returns that value.
     @Override
     public double cost()
     {
-        return ribs.cost();
+        return ribs.cost() + cost;
     }
 }
